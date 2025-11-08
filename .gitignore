@@ -179,3 +179,8 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# --- Custom: Asistente RAG Core ---
+.venv/
+.env
+data/index/
+.ipynb_checkpoints/
