@@ -75,3 +75,4 @@ Recall bajo → ajustar chunking/k, activar re-ranking.
 
 Alucinación → prompt “solo contexto” + abstenerse si score bajo.
 
+- Guía de entorno: [docs/SETUP_VSCODE_JUPYTER.md](docs/SETUP_VSCODE_JUPYTER.md)
