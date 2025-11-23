@@ -135,6 +135,21 @@ rango_buses,puntaje
 Demostración funcional detallada en 5.3.4.1.
 
 ---
+### 5.3.5 Plan de capacitación (PC)
+
+El puntaje por Plan de Capacitación se asigna en función de las horas de capacitador ofertadas, según lo dispuesto en el Anexo A11.
+
+**CSV asociado:** `data/raw/csv/plan_capacitacion_pc.csv`
+
+```csv
+horas_capacitador,puntaje_pc
+">=4000",100
+"3000-3999",75
+"2000-2999",50
+"1000-1999",25
+"<1000",0
+```
+En el evento de que el oferente que resulte adjudicado haya ofertado menos de mil (1.000) horas de capacitador, deberá en cualquier caso prestar como mínimo mil (1.000) horas de capacitador.
 
 ## 5.4 Apertura de ofertas económicas
 La apertura de las ofertas económicas se realiza por la Comisión en un acto público, en el plazo señalado en el cronograma del Artículo 3.4.1. El Ministerio puede determinar si el acto es presencial o vía streaming u otro medio a distancia, informándolo con al menos diez (10) días hábiles de anticipación a través del sitio web.
