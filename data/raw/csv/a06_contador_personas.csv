@@ -1,0 +1,9 @@
+campo,valor_minimo,comentario
+precision_porcentaje,98,"Precisión mínima requerida en porcentaje"
+registra_subidas_bajadas,1,"Debe registrar subidas y bajadas por puerta (1 = sí, 0 = no)"
+diferencia_eventos_simultaneos,1,"Diferencia eventos simultáneos de subida/bajada (1 = sí, 0 = no)"
+independiente_clima_luz,1,"No afectado por clima o variaciones de luz (1 = sí, 0 = no)"
+registra_todos_pasajeros,1,"Registra todos los pasajeros (altura estándar; <90cm no requerido)"
+identifica_bicicletas,1,"Identifica bicicletas (1 = sí, 0 = no)"
+identifica_sillas_ruedas,1,"Identifica sillas de ruedas (1 = sí, 0 = no)"
+instalacion_resistente,1,"Instalación segura y resistente al vandalismo (1 = sí, 0 = no)"

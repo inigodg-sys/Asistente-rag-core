@@ -1,0 +1,13 @@
+campo,valor_minimo,comentario
+pantalla_tipo,"PCAP_retroiluminada","Pantalla táctil de tipo PCAP retroiluminada"
+pantalla_color,1,"Pantalla a color (1 = sí, 0 = no)"
+dimension_pulgadas,7,"Dimensión mínima de la pantalla en pulgadas"
+brillo_ajustable,1,"Brillo ajustable (1 = sí, 0 = no)"
+contraste_ajustable,1,"Contraste ajustable (1 = sí, 0 = no)"
+alarma_audible_ajustable,1,"Alarma audible ajustable (1 = sí, 0 = no)"
+microfono_cuello_ganso,1,"Micrófono tipo cuello de ganso requerido (1 = sí, 0 = no)"
+microfono_desmontable,0,"El micrófono no debe ser desmontable (1 = sí, 0 = no)"
+muestra_info_grafica,1,"Muestra información gráfica (1 = sí, 0 = no)"
+muestra_info_texto,1,"Muestra información en texto (1 = sí, 0 = no)"
+soporta_audio,1,"Capaz de reproducir audio (1 = sí, 0 = no)"
+interaccion_cof,1,"Permite interacción con COF (1 = sí, 0 = no)"

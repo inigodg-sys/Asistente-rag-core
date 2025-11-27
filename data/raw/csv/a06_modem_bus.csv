@@ -1,0 +1,9 @@
+campo,valor_minimo,comentario
+tecnologia_red,"4G","Tecnología mínima soportada (4G o superior)"
+slots_sim,2,"Número mínimo de slots SIM"
+certificacion_industrial,1,"Requiere certificación industrial (1 = sí, 0 = no)"
+diagrama_interconexion,1,"Debe incluir diagrama de interconexión con resto de equipamiento (1 = sí, 0 = no)"
+ancho_banda_min_mbps,0,"Ancho de banda mínimo (Mbps). Se definirá según diseño de solución."
+respaldo_comunicaciones,1,"Debe contar con sistema de respaldo de comunicaciones (1 = sí, 0 = no)"
+tecnologias_inalambricas,"a_definir","Listado de tecnologías inalámbricas utilizadas (ej: LTE, 5G, WiFi)"
+protocolo_pruebas,1,"Debe incluir protocolo de pruebas para verificar el funcionamiento (1 = sí, 0 = no)"

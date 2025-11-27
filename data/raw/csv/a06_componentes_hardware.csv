@@ -1,0 +1,9 @@
+componente,categoria,ubicacion,descripcion
+"AVL","embarcado","bus","Sistema de localización automática de vehículos"
+"megafonia_usuarios","embarcado","bus","Megafonía y audio para información a personas usuarias a bordo"
+"megafonia_conductor","embarcado","bus","Canal de audio/comunicación para el personal de conducción"
+"pedal_boton_panico","embarcado","bus","Pedal o botón de pánico para activar alertas prioritarias"
+"estacion_trabajo_cof","central","COF","Puesto de trabajo para operadores del Centro de Operación de Flota (COF)"
+"equipamiento_cmb","central","CMB","Equipamiento del Centro de Monitoreo de Buses (CMB)"
+"equipamiento_terminales","local","terminal","Equipamiento instalado en terminales de buses"
+"servicio_comunicaciones","servicio","red","Servicio de comunicaciones entre SGF y COF/CMB"
