@@ -1,0 +1,6 @@
+campo,valor_minimo,comentario
+proyectos_ecpu,1,"Número mínimo de proyectos implementados con solución de contador de personas usuarias"
+umbral_proyectos,5,"Número de proyectos para obtener el máximo puntaje (UmbralFlotasCP = 5) según Art. 5.3.3 y Anexo A09"
+cobertura_min_flota_porcentaje,10,"Porcentaje mínimo de la flota del proyecto que debe contar con contadores de personas usuarias"
+precision_minima_porcentaje,95,"Precisión mínima requerida para los contadores de personas usuarias en cada proyecto"
+documentos_respaldo,1,"Cartas firmadas que acrediten la experiencia y cumplan los requisitos mínimos del Anexo A09"
