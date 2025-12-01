@@ -103,6 +103,7 @@ La siguiente tabla contiene los **roles mínimos** y la **cantidad referencial d
 | Encargado de capacitación de técnicos eléctricos y/o mecánicos | 50 |
 | Otros usuarios de monitoreo (Seguridad e Intermodales) | 10 |
 
+**CSV asociado:** `data/raw/csv/a11_personas_capacitar.csv`
 Estas cifras son valores mínimos referenciales y deberán utilizarse para dimensionar el volumen total de capacitación necesario.  
 
 ---
