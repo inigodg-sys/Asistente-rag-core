@@ -1,7 +1,7 @@
 # Anexo A06 – Formulario de la Solución  
 *(Basado en el contenido oficial del Anexo A06 – Res 14-2023 Subsecretaría de Transportes)*
 
-El Oferente debe proporcionar la información correspondiente a la solución SGF (Sistema de Gestión de Flota) y SIPU (Sistema de Información a Personas Usuarias) que propone para el Sistema de Transporte Público Metropolitano. Toda la información declarada es vinculante durante la vigencia del contrato y pasa a formar parte del Apéndice N°1 del Contrato en caso de adjudicación.
+El Oferente debe proporcionar la información correspondiente a la solución SGF (Sistema de Gestión de Flota) y SIPU (Sistema de Información a Personas Usuarias) que propone para el Sistema de Transporte Público Metropolitano. Toda la información declarada es vinculante durante la vigencia del contrato y pasa a formar parte del Apéndice N°11 del Contrato en caso de adjudicación.
 
 ---
 
@@ -36,7 +36,8 @@ El diagrama debe ser acompañado por una **descripción detallada**.
 El Oferente debe completar las Tablas N°2, N°3, N°4 y N°5 del Formulario A06 según los estándares indicados en las Bases.  
 La falta de completitud o especificaciones por debajo del mínimo implica inadmisibilidad.
 
-Tabla N°1 — Componentes mínimos requeridos:
+### Tabla N° 1 – Componentes mínimos requeridos
+
 
 | Nº | Arquitectura mínima solicitada |
 |----|--------------------------------|
@@ -61,6 +62,8 @@ El computador embarcado debe ser el **centro de procesamiento**, capaz de:
 Debe instalarse en un gabinete o rack no accesible para el conductor (se prohíben tablets).
 
 ## Especificaciones mínimas
+### Tabla N° 2 – Especificaciones mínimas del computador embarcado
+
 
 | Categoría | Requisito |
 |-----------|-----------|
@@ -79,8 +82,6 @@ Debe instalarse en un gabinete o rack no accesible para el conductor (se prohíb
 
 **CSV asociado:** `data/raw/csv/a06_computador_embarcado.csv`
 
-📌 *Lo generaremos tras terminar de procesar todas las tablas.*
-
 ---
 
 # 2.2 Consola táctil del personal de conducción
@@ -95,6 +96,8 @@ La consola debe:
 - incluir micrófono cuello de ganso (no integrado).
 
 ## Especificaciones mínimas
+### Tabla N° 3 – Especificaciones mínimas de la consola del personal de conducción
+
 
 | Categoría | Requisito |
 |-----------|-----------|
@@ -121,6 +124,8 @@ Debe cumplir:
 - Precisión mínima: **98%** (según Apéndice N°1, 3.1.6.1.1).
 
 ## Especificaciones mínimas
+### Tabla N° 4 – Especificaciones mínimas del sistema de contador de personas usuarias
+
 
 | Categoría | Requisito |
 |-----------|-----------|
@@ -148,6 +153,8 @@ Debe disponer de:
 - Protocolo de pruebas
 
 ## Especificaciones mínimas
+### Tabla N° 5 – Especificaciones mínimas del dispositivo de comunicación del bus
+
 
 | Categoría | Requisito |
 |-----------|-----------|
@@ -163,7 +170,8 @@ Debe disponer de:
 
 # 3. Otros componentes de la solución
 
-Componentes obligatorios (Tabla N°6):
+## Componentes obligatorios
+### Tabla N° 6 – Componentes de hardware de la solución
 
 | Componente | Descripción |
 |------------|-------------|
