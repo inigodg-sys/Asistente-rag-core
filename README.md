@@ -92,6 +92,73 @@ Este conjunto de `.md` + `.csv` constituye el corpus de entrada para el sistema 
 #### Plan de capacitación (A11):
 * `a11_personas_capacitar.csv`
 
+### Datos estructurados en JSON (`data/raw/json/`)
+
+Además del corpus en Markdown y de las tablas normalizadas en CSV, el proyecto incluye datos estructurados en formato JSON utilizados para mejorar la precisión y trazabilidad del sistema RAG.
+
+#### Definiciones del pliego (Capítulo 2)
+* **Archivo:** `definiciones.json`
+* **Contenido:** Todas las definiciones formales del Capítulo 2 del pliego, en formato estructurado:
+
+```json
+{
+  "id": "2.8",
+  "termino": "Centros de Operacion de Flota (COF)",
+  "definicion": "Unidad del OST mediante la cual controlan y supervisan el desempeño de la prestación de sus servicios."
+}
+```
+
+**Estos datos permiten:**
+* Consultas precisas sobre términos normativos.
+* Chunking semántico altamente estructurado.
+* Menos alucinaciones en respuestas que requieren definiciones exactas.
+* Mayor trazabilidad y consistencia normativa.
+
+---
+
+## Modelo de Documento RAG (Chunk Model)
+
+El sistema RAG utiliza un modelo unificado para representar todos los fragmentos de información procesados por el asistente.
+
+Cada chunk, independientemente de su origen (MD, CSV o JSON), se normaliza en la siguiente estructura:
+
+```json
+{
+  "text": "Contenido del fragmento utilizado para embeddings",
+  "source": "ruta/archivo_de_origen.md",
+  "type": "md | csv | json",
+  "section": "capítulo/anexo/sección",
+  "id": "identificador interno (si existe, ej: definición 2.8)",
+  "tags": ["evaluacion", "GF1", "funcionalidades", "PC", ...],
+  "metadatos": {
+    "fila": 12, 
+    "columna": "puntaje",
+    "termino": "COF",
+    "definicion": "Unidad del OST…"
+  }
+}
+```
+
+### Tipos de chunk
+
+| Tipo | Origen | Ejemplo | Uso en RAG |
+| :--- | :--- | :--- | :--- |
+| **MD** | Capítulos y Anexos | `05_evaluacion_adjudicacion.md` | Normativa, fórmulas, reglas |
+| **CSV** | Tablas normalizadas | `experiencia_gf1.csv` | Criterios cuantitativos |
+| **JSON** | Datos semánticos | `definiciones.json` | Definiciones exactas |
+
+### Cómo se usarán en el asistente
+* **MD:** Chunking textual clásico (800 tokens con solape).
+* **CSV:** Cada fila se convierte en frase semántica enriquecida.
+  * *Ejemplo:* “Rango 2000–3999 buses corresponde a 15 puntos en GF1 según Tabla 5.3.1.1”
+* **JSON:** Definición normativa limpia.
+  * *Ejemplo:* “COF: Unidad del OST que supervisa el desempeño...”
+
+### Ventajas del modelo unificado
+* Permite recuperar información heterogénea en una sola llamada FAISS.
+* **Facilita explicaciones completas y trazables:** “Según definición 2.8…” + “Según GF1 tabla…” + “Según Artículo 5.3…”
+* Optimiza la precisión del RAG y reduce alucinaciones.
+
 ---
 
 ## Estructura del repositorio
