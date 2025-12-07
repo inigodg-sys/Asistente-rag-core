@@ -267,3 +267,59 @@ INDEX_DIR=./data/index/faiss_index
 ## Guía de entorno
 
 * `docs/SETUP_VSCODE_JUPYTER.md` – Guía para trabajar con VS Code + Jupyter en este repo.
+
+## Modelo de Documento y Chunking (Resumen Técnico)
+
+El asistente RAG utiliza un modelo unificado para representar cualquier pieza de información del corpus GF 001/2023. Cada fragmento (*chunk*) se normaliza siguiendo una estructura única que permite trazabilidad normativa, filtrado eficiente y recuperación semántica precisa.
+
+---
+
+### Estructura del Chunk
+
+Cada chunk contiene:
+
+- **text:** contenido limpio y normalizado utilizado para embeddings.  
+- **source:** archivo de origen (capítulo, anexo, CSV, JSON).  
+- **doc_type:** tipo de documento (normativa, formulario, tabla, definición, tutorial).  
+- **section:** identificador jerárquico real (ej.: 5.3.1.1, A06.2.1).  
+- **id:** identificador interno para auditoría.  
+- **tags:** etiquetas temáticas (GF1, hardware, SIPU…).  
+- **metadatos:** información adicional específica del origen (número de fila, columna, término definido, etc.).
+
+Este modelo garantiza claridad, consistencia y trazabilidad en todas las respuestas generadas por el sistema.
+
+---
+
+### Estrategia de Chunking por Tipo de Documento
+
+#### **1. Normativa (capítulos y anexos del pliego)**  
+- Chunk por sección/subsección.  
+- 600–900 caracteres por chunk.  
+- Overlap de ~120 caracteres.  
+- Conservación estricta de numeración original.
+
+#### **2. Tablas CSV (GF1, GF2, GF3, EIPU, ECPU, funcionalidades, plan de capacitación)**  
+Cada fila se convierte en una frase semántica clara, por ejemplo:
+
+> “En GF1, un proyecto con 2000–3999 buses recibe 15 puntos según Art. 5.3.1.1.”
+
+Esto permite que el RAG comprenda y recupere correctamente información cuantitativa del pliego.
+
+#### **3. Definiciones (JSON)**  
+Cada definición genera un chunk exacto (vocabulario normativo oficial del pliego).
+
+#### **4. Documento ‘Rag (2)’**  
+Se usa solo como guía técnica; no participa en respuestas normativas.
+
+---
+
+### Beneficios del Modelo
+
+- **Trazabilidad total:** cada respuesta puede citar su origen exacto.  
+- **Precisión normativa:** alineado con la estructura oficial de la licitación.  
+- **Menos alucinaciones:** uso de definiciones exactas y chunking semántico.  
+- **Mejor rendimiento:** chunking coherente optimiza el índice FAISS y la recuperación.
+
+---
+
+Este modelo es la base técnica del RAG del TFM y garantiza que el asistente opere con rigor, coherencia y fidelidad al corpus de la licitación GF 001/2023.
