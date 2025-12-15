@@ -184,3 +184,7 @@ cython_debug/
 .env
 data/index/
 .ipynb_checkpoints/
+
+# Local artifacts
+/tmp_outputs/
+
