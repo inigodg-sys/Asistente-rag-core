@@ -1,325 +1,193 @@
-# ASISTENTE-RAG-CORE
+# TFM – Asistente RAG (core) aplicado a licitación GF 001/2023 (SGF + SIPU)
 
-**TFM – Big-School** Asistente RAG (core) aplicado a la licitación **GF 001/2023** (Gestión de Flota + SIPU).
+Asistente RAG multiformato para consultar el corpus de la licitación pública GF 001/2023 (Gestión de Flota + SIPU) y responder solo con evidencia del corpus, con trazabilidad y reproducibilidad.
 
 ---
 
 ## Objetivo
 
-Construir un **asistente RAG multiformato** que:
+Construir un sistema RAG que:
 
-* Lea documentos en PDF/DOCX/HTML/MD/TXT/CSV/JSON.
-* Recupere pasajes por similitud.
-* Responda **solo con ese contexto**.
-* Incluya **citas a las fuentes** (trazabilidad).
-
-Aplicado al corpus de la licitación pública para la **provisión de servicios tecnológicos de Gestión de Flota (SGF) e Información a Personas Usuarias (SIPU)** del Sistema de Transporte Público Metropolitano.
+- Lea documentos en PDF/DOCX/MD/TXT/CSV/JSON (MVP: MD/CSV/JSON; PDF/DOCX por fases).
+- Normalice y “chunkee” el contenido.
+- Indexe y recupere pasajes relevantes por similitud.
+- Genere respuestas ancladas al contexto recuperado.
+- Incluya citas / referencias a fuentes (documento, sección, id).
 
 ---
 
 ## Principios
 
-* **Veracidad > elocuencia:** Si no hay evidencia suficiente → *"no tengo suficiente información para afirmar esto"*.
-* **Trazabilidad:** Cada respuesta debe poder enlazarse a uno o varios documentos/orígenes concretos.
-* **Reproducibilidad:** Mismo input → misma consulta → mismos resultados (controlados).
-* **Simplicidad → mejora:** Empezar con una arquitectura clara y después iterar.
+- Veracidad > elocuencia: si no hay evidencia suficiente → “no tengo suficiente información para afirmar esto”.
+- Trazabilidad: cada respuesta debe enlazarse a uno o varios fragmentos (source/section/id).
+- Reproducibilidad: mismo input → mismo chunking → misma búsqueda → mismos resultados (con parámetros controlados).
+- Iteración profesional: cambios importantes se prueban en ramas feature/* y se integran por PR/merge.
 
 ---
 
-## Diagrama (Big Picture)
+## Estado actual del proyecto (2025-12-17)
 
-```text
-Ingesta (PDF/DOCX/HTML/MD/TXT/CSV/JSON)
-  └─ Limpieza/normalización → { text, source, section_path, page, tags }
-      └─ Chunking con solape (size≈800, overlap≈120)
-          └─ Embeddings (Sentence-Transformers)
-              └─ Índice vectorial (FAISS, persistente)
-                  └─ Recuperación top-k (k≈5–8)
-                      └─ (Mejora) Re-ranking con Cross-Encoder
-                          └─ Prompt seguro + LLM → Respuesta con citas
-```
+### Hecho
+- Diseño conceptual completo (modelo de documento, chunking, pipeline).
+- Implementación de limpieza Markdown:
+  - src/rag_core/clean_markdown.py (v1 estable, basada en pseudocódigo).
+  - src/rag_core/clean_markdown_v2.py (v2 opcional) con normalización de bullets “• → -”.
+  - src/rag_core/cleaning.py (wrapper/compatibilidad; evitar duplicación de lógica).
+- Sanity checks:
+  - notebooks/clean_markdown_sanity.ipynb (pruebas de v1 y comparación v1 vs v2).
+- Herramientas:
+  - tools/compare_cleaners.py (diff automático entre módulos).
+- Repositorio migrado y funcionando en el nuevo equipo (repo + venv + dependencias mínimas + datos).
 
----
-
-## Corpus actual (pliego GF + anexos)
-
-El corpus principal del proyecto está formado por:
-
-### Capítulos normativos del pliego (`data/raw/web/`)
-
-* `01_antecedentes_generales.md`
-* `02_definiciones.md`
-* `03_de_la_licitacion.md`
-* `04_de_las_ofertas.md`
-* `05_evaluacion_adjudicacion.md`
-* `06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion.md`
-
-### Anexos (formularios y especificaciones técnicas)
-
-* `A02_A05_antecedentes_generales.md` – Identificación oferente, consorcio, declaraciones.
-* `A06_formulario_de_la_solucion.md` – Arquitectura SGF/SIPU, hardware mínimo, comunicaciones.
-* `A07_formulario_experiencia_GF.md` – Experiencia GF1/GF2/GF3.
-* `A08_formulario_experiencia_EIPU.md` – Experiencia en información a personas usuarias.
-* `A09_formulario_experiencia_ECPU.md` – Experiencia en contadores de personas usuarias.
-* `A10_Descripciones_tecnicas_de_las_funcionalidades.md` – Funcionalidades 3.1.x y 3.2.x.
-* `A11_formulario_plan_de_capacitacion.md`
-* `A12_formulario_de_oferta_economica.md`
-* `A13_valores_de_reposicion.md`
-
-### Tablas normalizadas en CSV (`data/raw/csv/`)
-
-Este conjunto de `.md` + `.csv` constituye el corpus de entrada para el sistema RAG del TFM.
-
-#### Criterios de evaluación (Cap. 5):
-* `cronograma_licitacion.csv`
-* `experiencia_gf1.csv`
-* `experiencia_gf2.csv`
-* `experiencia_eipu.csv`
-* `experiencia_ecpu.csv`
-* `plan_capacitacion_pc.csv`
-
-#### Arquitectura técnica (A06):
-* `a06_computador_embarcado.csv`
-* `a06_consola_conductor.csv`
-* `a06_contador_personas.csv`
-* `a06_modem_bus.csv`
-* `a06_componentes_hardware.csv`
-
-#### Funcionalidades (A10):
-* `a10_funcionalidades_mandatorias.csv`
-* `a10_funcionalidades_adicionales.csv`
-
-#### Plan de capacitación (A11):
-* `a11_personas_capacitar.csv`
-
-### Datos estructurados en JSON (`data/raw/json/`)
-
-Además del corpus en Markdown y de las tablas normalizadas en CSV, el proyecto incluye datos estructurados en formato JSON utilizados para mejorar la precisión y trazabilidad del sistema RAG.
-
-#### Definiciones del pliego (Capítulo 2)
-* **Archivo:** `definiciones.json`
-* **Contenido:** Todas las definiciones formales del Capítulo 2 del pliego, en formato estructurado:
-
-```json
-{
-  "id": "2.8",
-  "termino": "Centros de Operacion de Flota (COF)",
-  "definicion": "Unidad del OST mediante la cual controlan y supervisan el desempeño de la prestación de sus servicios."
-}
-```
-
-**Estos datos permiten:**
-* Consultas precisas sobre términos normativos.
-* Chunking semántico altamente estructurado.
-* Menos alucinaciones en respuestas que requieren definiciones exactas.
-* Mayor trazabilidad y consistencia normativa.
+### En progreso / siguiente hito
+- Implementar src/rag_core/ingest.py (ingesta end-to-end: descubrir → leer → limpiar → chunking → chunks.jsonl).
+- Añadir tests reproducibles (pytest) para clean_markdown (v1/v2) en rama feature/clean-markdown-tests.
+- Primera ejecución completa: ingesta → chunks → baseline retrieval.
 
 ---
 
-## Modelo de Documento RAG (Chunk Model)
+## Big picture del sistema
 
-El sistema RAG utiliza un modelo unificado para representar todos los fragmentos de información procesados por el asistente.
-
-Cada chunk, independientemente de su origen (MD, CSV o JSON), se normaliza en la siguiente estructura:
-
-```json
-{
-  "text": "Contenido del fragmento utilizado para embeddings",
-  "source": "ruta/archivo_de_origen.md",
-  "type": "md | csv | json",
-  "section": "capítulo/anexo/sección",
-  "id": "identificador interno (si existe, ej: definición 2.8)",
-  "tags": ["evaluacion", "GF1", "funcionalidades", "PC", ...],
-  "metadatos": {
-    "fila": 12, 
-    "columna": "puntaje",
-    "termino": "COF",
-    "definicion": "Unidad del OST…"
-  }
-}
-```
-
-### Tipos de chunk
-
-| Tipo | Origen | Ejemplo | Uso en RAG |
-| :--- | :--- | :--- | :--- |
-| **MD** | Capítulos y Anexos | `05_evaluacion_adjudicacion.md` | Normativa, fórmulas, reglas |
-| **CSV** | Tablas normalizadas | `experiencia_gf1.csv` | Criterios cuantitativos |
-| **JSON** | Datos semánticos | `definiciones.json` | Definiciones exactas |
-
-### Cómo se usarán en el asistente
-* **MD:** Chunking textual clásico (800 tokens con solape).
-* **CSV:** Cada fila se convierte en frase semántica enriquecida.
-  * *Ejemplo:* “Rango 2000–3999 buses corresponde a 15 puntos en GF1 según Tabla 5.3.1.1”
-* **JSON:** Definición normativa limpia.
-  * *Ejemplo:* “COF: Unidad del OST que supervisa el desempeño...”
-
-### Ventajas del modelo unificado
-* Permite recuperar información heterogénea en una sola llamada FAISS.
-* **Facilita explicaciones completas y trazables:** “Según definición 2.8…” + “Según GF1 tabla…” + “Según Artículo 5.3…”
-* Optimiza la precisión del RAG y reduce alucinaciones.
+Ingesta → Limpieza/Normalización → Chunking → Embeddings → Vector store → Retrieval → (Re-ranking opcional) → Prompt seguro → LLM → Respuesta con citas
 
 ---
 
 ## Estructura del repositorio
 
-```text
-asistente-rag-core/
-├─ README.md
-├─ requirements.txt
-├─ .gitignore
-├─ data/
-│  ├─ raw/
-│  │  ├─ web/        # capítulos y anexos del pliego en Markdown
-│  │  ├─ csv/        # tablas normalizadas (GF, EIPU, ECPU, A06, A10, A11, etc.)
-│  │  ├─ json/       # definiciones, metadatos adicionales
-│  │  └─ imagenes/   # imágenes auxiliares (tablas, esquemas)
-│  └─ index/         # índice FAISS u otros índices persistentes (NO versionar)
-├─ notebooks/        # experimentos, análisis, prototipos RAG
-└─ src/
-   └─ rag_core/      # ingest, index, retriever, qa (a completar)
-```
+    asistente-rag-core/
+    ├─ README.md
+    ├─ requirements.txt
+    ├─ .env.example
+    ├─ .gitignore
+    ├─ data/
+    │  ├─ raw/
+    │  │  ├─ web/      # MD/TXT normalizados (entrada)
+    │  │  ├─ csv/      # tablas (entrada)
+    │  │  └─ json/     # definiciones / estructuras (entrada)
+    │  └─ index/       # índices vectoriales (NO versionar)
+    ├─ docs/           # diseño y especificaciones (pipeline, chunking, etc.)
+    ├─ notebooks/
+    │  └─ clean_markdown_sanity.ipynb
+    ├─ src/
+    │  └─ rag_core/
+    │     ├─ __init__.py
+    │     ├─ clean_markdown.py
+    │     ├─ clean_markdown_v2.py
+    │     ├─ cleaning.py
+    │     ├─ ingest.py          # (a implementar)
+    │     ├─ index.py           # (a implementar)
+    │     ├─ retriever.py       # (a implementar)
+    │     └─ qa.py              # (a implementar)
+    └─ tools/
+       └─ compare_cleaners.py
+
+Nota: carpetas como tmp_outputs/ son artefactos locales y no deben versionarse.
 
 ---
 
-## Criterios de éxito (KPIs internos)
+## Instalación rápida
 
-* **Recall@5 ≥ 0.80** en un gold set de 20–30 preguntas relevantes sobre la licitación GF.
-* **Faithfulness ≥ 85%** (Respuestas soportadas por las citas, sin alucinaciones no justificadas).
-* **Latencia ≤ 3 s** por consulta típica (índice en memoria, k≈5–8).
-* **README narrativo** con diagrama y ejemplos reproducibles.
-* **Trazabilidad completa** de cada respuesta a secciones (capítulos/anexos) del pliego.
+### 1) Crear y activar entorno virtual
+
+Windows (PowerShell)
+
+    python -m venv .venv
+    .\.venv\Scripts\Activate
+
+macOS/Linux
+
+    python3 -m venv .venv
+    source .venv/bin/activate
+
+### 2) Instalar dependencias
+
+    pip install -U pip
+    pip install -r requirements.txt
+
+### 3) Variables de entorno
+
+Crea .env desde .env.example (no se versiona).
 
 ---
 
-## Cómo arrancar (local)
+## Sanity check de clean_markdown
 
-### 1. Crear entorno virtual
+Notebook:
+- notebooks/clean_markdown_sanity.ipynb
 
-```bash
-python -m venv .venv
-```
+Qué valida:
+- unión conservadora de líneas partidas (casos típicos PDF/DOCX → texto)
+- corrección de numeración fragmentada (5.3.1. + título)
+- normalización de headings Markdown (##Titulo → ## Titulo)
+- corrección de listas básicas (- - item → - item)
+- eliminación de artefactos (v1)
 
-### 2. Activar entorno
+Limitaciones conocidas:
+- v1 no normaliza “•” a “-” (por diseño MVP).
+- v2 sí normaliza bullets “• → -” (mejora estructural).
+- Corrección de “ruido OCR” (p.ej. operaci6n) se deja fuera del MVP por riesgo/ambigüedad; se considera mejora futura.
 
-**Windows (PowerShell):**
-```powershell
-.\.venv\Scripts\activate
-```
+---
 
-**Linux/Mac (Bash):**
-```bash
-source .venv/bin/activate
-```
+## Ingesta (MVP end-to-end)
 
-### 3. Instalar dependencias
+Objetivo del MVP:
+1) Descubrir archivos en data/raw/{web,csv,json}
+2) Leer/parsear por formato
+3) Aplicar clean_markdown (v1)
+4) Chunking normativa (aprox. 600–900 chars, overlap ~120)
+5) Guardar salida chunks.jsonl con trazabilidad (source/section/id)
 
-```bash
-pip install -U pip
-pip install -r requirements.txt
-```
+Comando objetivo (cuando ingest.py esté listo):
 
-### 4. Configurar variables de entorno
+    python -c "from rag_core.ingest import IngestConfig, ingest_corpus; print(len(ingest_corpus(IngestConfig(repo_root='.'))))"
 
-Crear un archivo `.env` en la raíz con el siguiente contenido:
+---
 
-```ini
-EMBEDDING_MODEL=sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
-DOCS_DIR=./data/raw
-INDEX_DIR=./data/index/faiss_index
-# OPENAI_API_KEY=   # si se usa OpenAI u otro proveedor
-```
+## Modelo de chunk (salida mínima)
+
+Cada chunk debe permitir trazabilidad:
+
+    {
+      "text": "...",
+      "source": "data/raw/web/archivo.md",
+      "doc_type": "normativa",
+      "section": "5.3.1",
+      "id": "archivo:5.3.1:0",
+      "tags": [],
+      "metadatos": {"chunk_index": 0}
+    }
+
+---
+
+## Evaluación (MVP)
+
+Retrieval
+- Recall@k
+- MRR / nDCG (si aplica)
+- Smoke tests cualitativos (preguntas realistas + verificación de evidencias)
+
+Generación
+- Faithfulness (respuestas soportadas por citas)
+- Abstención correcta (si no hay evidencia)
+
+---
+
+## Flujo Git recomendado
+
+- main: estable.
+- ramas feature/*:
+  - feature/ingest-mvp
+  - feature/clean-markdown-tests
+- PR corto → merge a main.
 
 ---
 
 ## Roadmap
 
-### MVP
-* Ingesta de Markdown + CSV del pliego GF.
-* Limpieza y normalización → chunks con metadatos `{ text, source, section, tipo, tags }`.
-* Embeddings + FAISS.
-* RetrievalQA con citas a fuentes.
-
-### Mejoras
-* Re-ranking (Cross-Encoder).
-* Integración BM25 + denso.
-* Chunking por secciones normativas (capítulo, artículo, anexo, tabla).
-
----
-
-## Evaluación
-
-* Recall@k, MRR.
-* Faithfulness.
-* Casos cualitativos (explicación y trazabilidad por chunk).
-
----
-
-## Riesgos y mitigación
-
-* **PDFs escaneados:** Se evita en el MVP (se trabaja con DOCX/MD). OCR se puede añadir después.
-* **Recall bajo:** Ajustar tamaño de chunk, valor de k en top-k y activar re-ranking.
-* **Alucinaciones:** Prompt “solo contexto” + decisión de abstenerse si no hay contexto suficiente o si la similitud es baja.
-* **Inconsistencias de corpus:** Uso de CSV normalizados + enlaces explícitos entre `.md` y `data/raw/csv`.
-
----
-
-## Guía de entorno
-
-* `docs/SETUP_VSCODE_JUPYTER.md` – Guía para trabajar con VS Code + Jupyter en este repo.
-
-## Modelo de Documento y Chunking (Resumen Técnico)
-
-El asistente RAG utiliza un modelo unificado para representar cualquier pieza de información del corpus GF 001/2023. Cada fragmento (*chunk*) se normaliza siguiendo una estructura única que permite trazabilidad normativa, filtrado eficiente y recuperación semántica precisa.
-
----
-
-### Estructura del Chunk
-
-Cada chunk contiene:
-
-- **text:** contenido limpio y normalizado utilizado para embeddings.  
-- **source:** archivo de origen (capítulo, anexo, CSV, JSON).  
-- **doc_type:** tipo de documento (normativa, formulario, tabla, definición, tutorial).  
-- **section:** identificador jerárquico real (ej.: 5.3.1.1, A06.2.1).  
-- **id:** identificador interno para auditoría.  
-- **tags:** etiquetas temáticas (GF1, hardware, SIPU…).  
-- **metadatos:** información adicional específica del origen (número de fila, columna, término definido, etc.).
-
-Este modelo garantiza claridad, consistencia y trazabilidad en todas las respuestas generadas por el sistema.
-
----
-
-### Estrategia de Chunking por Tipo de Documento
-
-#### **1. Normativa (capítulos y anexos del pliego)**  
-- Chunk por sección/subsección.  
-- 600–900 caracteres por chunk.  
-- Overlap de ~120 caracteres.  
-- Conservación estricta de numeración original.
-
-#### **2. Tablas CSV (GF1, GF2, GF3, EIPU, ECPU, funcionalidades, plan de capacitación)**  
-Cada fila se convierte en una frase semántica clara, por ejemplo:
-
-> “En GF1, un proyecto con 2000–3999 buses recibe 15 puntos según Art. 5.3.1.1.”
-
-Esto permite que el RAG comprenda y recupere correctamente información cuantitativa del pliego.
-
-#### **3. Definiciones (JSON)**  
-Cada definición genera un chunk exacto (vocabulario normativo oficial del pliego).
-
-#### **4. Documento ‘Rag (2)’**  
-Se usa solo como guía técnica; no participa en respuestas normativas.
-
----
-
-### Beneficios del Modelo
-
-- **Trazabilidad total:** cada respuesta puede citar su origen exacto.  
-- **Precisión normativa:** alineado con la estructura oficial de la licitación.  
-- **Menos alucinaciones:** uso de definiciones exactas y chunking semántico.  
-- **Mejor rendimiento:** chunking coherente optimiza el índice FAISS y la recuperación.
-
----
-
-Este modelo es la base técnica del RAG del TFM y garantiza que el asistente opere con rigor, coherencia y fidelidad al corpus de la licitación GF 001/2023.
+1) ingest.py + chunks.jsonl (MVP)
+2) Vector store + embeddings
+3) Retriever baseline (top-k)
+4) Evaluación mínima (gold set 20–30 preguntas)
+5) Mejora técnica: re-ranking / chunking adaptativo / híbrbrido BM25+denso (opcional)
+6) CLI / mini UI (opcional)
