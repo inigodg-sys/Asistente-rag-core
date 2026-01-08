@@ -70,7 +70,7 @@ instance/
 
 # Sphinx documentation
 docs/_build/
-
+reports/
 # PyBuilder
 .pybuilder/
 target/
@@ -184,7 +184,9 @@ cython_debug/
 .env
 data/index/
 .ipynb_checkpoints/
+data/index_backup_*/
 
 # Local artifacts
 /tmp_outputs/
+*.zip
 

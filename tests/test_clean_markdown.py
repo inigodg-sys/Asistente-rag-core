@@ -1,5 +1,11 @@
+import pytest
+
 from rag_core.clean_markdown import clean_markdown
 from rag_core.clean_markdown_v2 import clean_markdown_v2
+
+
+# CAPA A — Unit tests (limpieza)
+pytestmark = pytest.mark.ingest_unit
 
 
 def test_returns_str():
