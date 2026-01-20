@@ -189,4 +189,5 @@ data/index_backup_*/
 # Local artifacts
 /tmp_outputs/
 *.zip
+.tmp_pytest/
 
