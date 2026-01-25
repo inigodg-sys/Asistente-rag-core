@@ -212,4 +212,39 @@ python -m pytest -q -m retrieval
 - **Retrieval real (CAPA C):** recuperación top-k estable y trazable.  
 - **Evaluación mínima:** gold set + métricas Recall@k/Hit@k + ejemplos con citas para defensa del TFM.
 
----
+## Evaluación mínima (Retrieval) — Gold set + Hit@k / Recall@k
+
+Esta sección permite evaluar de forma reproducible la **CAPA C (retrieval real)** sobre el índice persistido en `data/index/`, sin depender todavía de un Generador.
+
+### Archivos
+- **Gold set (v0):** `eval/gold_retrieval_v0.csv`  
+  Formato: `qid,question,expected_ids`  
+  - `expected_ids` puede contener 1 o más IDs separados por `;` (p. ej. `id1;id2`).
+- **Script de evaluación:** `tools/eval_retrieval.py`
+- **Artefactos CAPA B usados por la evaluación:**
+  - `data/index/faiss.index`
+  - `data/index/meta.jsonl`
+
+### Ejecutar evaluación (PowerShell, Windows)
+Desde la raíz del repo:
+
+    $env:PYTHONPATH = "$PWD\src"
+    python .\tools\eval_retrieval.py `
+      --gold .\eval\gold_retrieval_v0.csv `
+      --k 5 `
+      --index .\data\index\faiss.index `
+      --meta .\data\index\meta.jsonl `
+      --out .\reports\eval\retrieval_eval_v0.json
+
+Salida esperada:
+- Imprime un `SUMMARY` en consola con métricas agregadas.
+- Guarda el detalle completo en `reports/eval/retrieval_eval_v0.json`.
+
+### Interpretación de métricas
+- **Hit@k:** para cada pregunta, vale 1 si *algún* `expected_id` aparece en el top-k; si no, 0.  
+  El promedio (`hit_at_k_mean`) indica la proporción de preguntas “acertadas” en top-k.
+- **Recall@k:** si una pregunta tiene varios `expected_ids`, mide qué fracción aparece en el top-k.  
+  Si hay 1 solo `expected_id`, entonces Recall@k coincide con Hit@k.
+
+Nota: este gold set v0 está pensado como evaluación mínima y como prueba de regresión. Más adelante puede ampliarse con múltiples evidencias por pregunta o validación externa (lectura de documento) para una evaluación más estricta.
+
