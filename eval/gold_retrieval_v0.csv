@@ -1,0 +1,11 @@
+qid,question,expected_ids
+Q01,"como se paga",04_de_las_ofertas:4:33
+Q02,"SLA KPI",01_antecedentes_generales:1:15
+Q03,"multas penalidades",03_de_la_licitacion:3:5
+Q04,"garantia fiel cumplimiento del contrato",06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6
+Q05,"plazo de pago 30 dias",cronograma_licitacion:row:4
+Q06,"pago de operacion ofertado P00 anexo A12",04_de_las_ofertas:4:33
+Q07,"unidades de fomento UF pago mensual",04_de_las_ofertas:4:33
+Q08,"oferta temeraria 10 por ciento",03_de_la_licitacion:3:76
+Q09,"ciberseguridad ISO 27001 control de accesos",a10_funcionalidades_mandatorias:row:28
+Q10,"vigencia del contrato inicio de la prestacion de servicios",01_antecedentes_generales:1:3
