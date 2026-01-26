@@ -11,7 +11,7 @@ from rag_core.llm_generator import LLMGenerator, LLMGeneratorConfig
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("query", help="Pregunta del usuario")
-    p.add_argument("--k", type=int, default=5)
+    p.add_argument("-k","--k", type=int, default=5)
     p.add_argument("--index", default="data/index/faiss.index")
     p.add_argument("--meta", default="data/index/meta.jsonl")
     p.add_argument("--model", default="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
