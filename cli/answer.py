@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 
-from rag_core.retriever import load_retriever
 from rag_core.generator import Generator, GeneratorConfig
 from pathlib import Path
 from rag_core.llm_backend import MockLLM
@@ -20,7 +19,8 @@ def main() -> int:
     p.add_argument("--min_score", type=float, default=None)
     p.add_argument("--backend", choices=["deterministic", "mock-llm"], default="deterministic")
     args = p.parse_args()
-
+    from rag_core.retriever import load_retriever
+    
     r = load_retriever(
     index_path=Path(args.index),
     meta_path=Path(args.meta),
