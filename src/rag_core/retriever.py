@@ -6,7 +6,10 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any
 
 import numpy as np
-import faiss  # type: ignore
+try:
+    import faiss  # type: ignore
+except ModuleNotFoundError:
+    faiss = None
 
 from rag_core.embeddings import get_embedder
 
@@ -57,6 +60,9 @@ class Retriever:
 
 
 def load_retriever(index_path: Path, meta_path: Path, model_name: str, device: Optional[str] = None) -> Retriever:
+    if faiss is None:
+        raise RuntimeError("Faiss no esta instalado. Esta funcionalidad(retrieval/indexing) requiere Faiss"
+                           "En Windows puede requerir conda/WSL2. Alternativa: user solo backend determinista/LMM sin retrieval")
     index = faiss.read_index(str(index_path))
     meta = load_meta(meta_path)
     if index.ntotal != len(meta):
