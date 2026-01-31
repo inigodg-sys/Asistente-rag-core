@@ -9,6 +9,32 @@ from typing import Any, Dict, List, Literal, Optional, Sequence, Tuple
 
 from rag_core.clean_markdown import clean_markdown
 
+# --- OCR noise fix (Spanish): ci6n/ci6nes ---
+_GAP = r"[ \t\u00A0\u200b\u200c\u200d\ufeff]*"
+
+_RE_CI6NES = re.compile(fr"c{_GAP}i{_GAP}6{_GAP}n{_GAP}e{_GAP}s", re.IGNORECASE)
+_RE_CI6N   = re.compile(fr"c{_GAP}i{_GAP}6{_GAP}n", re.IGNORECASE)
+
+def _only_letters(s: str) -> str:
+    return re.sub(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ]", "", s)
+
+def _rep_ci6nes(m: re.Match) -> str:
+    letters = _only_letters(m.group(0))
+    return "CIONES" if letters.isupper() else "ciones"
+
+def _rep_ci6n(m: re.Match) -> str:
+    letters = _only_letters(m.group(0))
+    return "CIÓN" if letters.isupper() else "ción"
+
+def fix_spanish_ocr_noise(text: str) -> str:
+    # 1) plural (sin tilde): acciones, publicaciones, etc.
+    text = _RE_CI6NES.sub(_rep_ci6nes, text)
+    # 2) singular (con tilde): acción, publicación, etc.
+    text = _RE_CI6N.sub(_rep_ci6n, text)
+    return text
+
+
+
 DocType = Literal["normativa", "tabla", "definicion", "tutorial", "formulario"]
 FmtType = Literal["md", "csv", "json"]
 
@@ -110,7 +136,10 @@ def _infer_doc_type(path: Path, fmt: FmtType, cfg: IngestConfig) -> DocType:
 
 def read_and_parse(desc: DocumentDescriptor) -> Any:
     if desc.format == "md":
-        return desc.path.read_text(encoding="utf-8", errors="replace")
+       text = desc.path.read_text(encoding="utf-8", errors="replace")
+       text = fix_spanish_ocr_noise(text)
+       return text
+
     if desc.format == "csv":
         return _read_csv(desc.path)
     if desc.format == "json":
@@ -123,7 +152,8 @@ def _read_csv(path: Path) -> List[Dict[str, str]]:
     with path.open("r", encoding="utf-8", errors="replace", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            rows.append({k: (v or "") for k, v in row.items()})
+            rows.append({k: fix_spanish_ocr_noise(v or "") for k, v in row.items()})
+
     return rows
 
 
@@ -248,6 +278,9 @@ def _ingest_json(desc: DocumentDescriptor, obj: Any) -> List[Chunk]:
         id_ = str(d.get("id", "")).strip()
         termino = str(d.get("termino", d.get("término", ""))).strip()
         definicion = str(d.get("definicion", d.get("definición", ""))).strip()
+        
+        termino = fix_spanish_ocr_noise(termino)
+        definicion = fix_spanish_ocr_noise(definicion)
         if id_ and termino and definicion:
             entries.append((id_, termino, definicion))
 

@@ -248,3 +248,17 @@ Salida esperada:
 
 Nota: este gold set v0 está pensado como evaluación mínima y como prueba de regresión. Más adelante puede ampliarse con múltiples evidencias por pregunta o validación externa (lectura de documento) para una evaluación más estricta.
 
+En Windows, `conda run` puede reimprimir stdout con encoding incorrecto (mojibake).
+Usa `--no-capture-output`:
+
+```powershell
+conda run -n rag --no-capture-output python .\cli\answer.py "forma de pago" -k 10 --min_score 0.35 --backend openai --llm_model gpt-4.1-mini
+
+
+---
+
+## A3) Commit del fix OCR + doc + evidencia
+Primero mira qué cambió:
+
+```powershell
+git status
