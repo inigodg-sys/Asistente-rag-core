@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 
-from rag_core.retriever import load_retriever
 from rag_core.generator import Generator, GeneratorConfig
 from pathlib import Path
 from rag_core.llm_backend import MockLLM
@@ -18,9 +17,11 @@ def main() -> int:
     p.add_argument("--device", default=None)
     p.add_argument("--max_sources", type=int, default=3)
     p.add_argument("--min_score", type=float, default=None)
-    p.add_argument("--backend", choices=["deterministic", "mock-llm"], default="deterministic")
+    p.add_argument("--backend", choices=["deterministic", "mock-llm", "openai"], default="deterministic")
+    p.add_argument("--llm_model", type=str, default="gpt-4.1-mini")
     args = p.parse_args()
-
+    from rag_core.retriever import load_retriever
+    
     r = load_retriever(
     index_path=Path(args.index),
     meta_path=Path(args.meta),
@@ -37,6 +38,10 @@ def main() -> int:
         MockLLM(),
         LLMGeneratorConfig(max_sources=args.max_sources, min_score=args.min_score),
     )
+    elif args.backend == "openai":
+        from rag_core.llm_backend_openai import OpenAILLM, OpenAILLMConfig
+        llm = OpenAILLM(config=OpenAILLMConfig(model=args.llm_model))
+        g = LLMGenerator(llm, LLMGeneratorConfig(max_sources=args.max_sources, min_score=args.min_score))
     else:
      g = Generator(GeneratorConfig(max_sources=args.max_sources, min_score=args.min_score))
 
