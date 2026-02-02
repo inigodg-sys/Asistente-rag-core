@@ -191,3 +191,6 @@ Generación
 4) Evaluación mínima (gold set 20–30 preguntas)
 5) Mejora técnica: re-ranking / chunking adaptativo / híbrbrido BM25+denso (opcional)
 6) CLI / mini UI (opcional)
+
+## Como generar evidencia
+- conda run -n rag --no-capture-output python .\cli\answer.py "forma de pago" ...

@@ -262,3 +262,6 @@ Primero mira qué cambió:
 
 ```powershell
 git status
+"En Windows + RTX 5090 (sm_120) ejecutar siempre --device cpu”
+
+“GPU embeddings no soportado por builds actuales de PyTorch”
