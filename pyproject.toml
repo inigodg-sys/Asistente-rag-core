@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asistente-rag-core"
+version = "0.1.0"
+description = "Asistente RAG core (TFM)"
+requires-python = ">=3.10"
+readme = "README.md"
+license = { file = "LICENSE" }
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["rag_core*"]
