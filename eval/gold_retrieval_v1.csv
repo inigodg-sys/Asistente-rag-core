@@ -1,0 +1,31 @@
+qid,question,expected_ids
+V1Q01,"forma de pago",04_de_las_ofertas:4:33;04_de_las_ofertas:4:32
+V1Q02,"pago de inversion inicial",04_de_las_ofertas:4:32;A12_formulario_de_oferta_economica:preamble:0
+V1Q03,"que documentos van en el sobre paquete 1 2 3",03_de_la_licitacion:3:51
+V1Q04,"oferta tecnica documentos requeridos",03_de_la_licitacion:3:51
+V1Q05,"oferta economica documentos requeridos",03_de_la_licitacion:3:51
+V1Q06,"criterios de evaluacion y adjudicacion",05_Evaluacion_adjudicacion:5:0;05_Evaluacion_adjudicacion:5:20
+V1Q07,"condiciones de admisibilidad de la oferta",03_de_la_licitacion:3:81;03_de_la_licitacion:3:80
+V1Q08,"que significa adjudicacion",05_Evaluacion_adjudicacion:5:19
+V1Q09,"cronograma de la licitacion hitos principales",cronograma_licitacion:row:0
+V1Q10,"plazos de evaluacion y etapas",cronograma_licitacion:row:3;cronograma_licitacion:row:10;cronograma_licitacion:row:12
+V1Q11,"requisitos de computador embarcado",A06_formulario_de_la_solucion:2.1:0;a06_computador_embarcado:row:9
+V1Q12,"capacitacion personas a capacitar",a11_personas_capacitar:row:9;a11_personas_capacitar:row:11;a11_personas_capacitar:row:12
+V1Q13,"que significa operacion definicion",def:2.20
+V1Q14,"que significa contrato definicion",03_de_la_licitacion:3:84;06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:4;06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:5
+V1Q15,"que significa oferente definicion",def:2.24;def:2.21;03_de_la_licitacion:3:47
+V1Q16,"requisitos representante legal mandato",04_de_las_ofertas:4:4;04_de_las_ofertas:4:7;04_de_las_ofertas:4:11
+V1Q17,"requisitos para consorcio",04_de_las_ofertas:4:33
+V1Q18,"garantia seriedad de la oferta",04_de_las_ofertas:4:33
+V1Q19,"causales de rechazo de la oferta",05_Evaluacion_adjudicacion:5:19
+V1Q20,"multas o penalidades por incumplimiento",05_Evaluacion_adjudicacion:5:19
+V1Q21,"aclaraciones y modificaciones de bases",03_de_la_licitacion:3:84
+V1Q22,"plazo para consultas sobre las bases",cronograma_licitacion:row:0
+V1Q23,"apertura de ofertas tecnicas cuando",cronograma_licitacion:row:8
+V1Q24,"apertura de ofertas economicas cuando",cronograma_licitacion:row:11
+V1Q25,"evaluacion tecnica plazo",cronograma_licitacion:row:10
+V1Q26,"evaluacion economica plazo",cronograma_licitacion:row:12
+V1Q27,"dictacion resolucion adjudicacion",cronograma_licitacion:row:13
+V1Q28,"requisitos de presentacion de ofertas",04_de_las_ofertas:4:33
+V1Q29,"obligaciones del oferente durante el proceso",03_de_la_licitacion:3:84
+V1Q30,"condiciones de pago mensuales y pago de inversión inicial durante la vigencia del contrato",04_de_las_ofertas:4:33;04_de_las_ofertas:4:32;03_de_la_licitacion:3:84
