@@ -191,3 +191,25 @@ data/index_backup_*/
 *.zip
 .tmp_pytest/
 
+
+# WSL / venv
+.venv_wsl/
+__pycache__/
+*.pyc
+
+# Bench backups
+*.bak
+*.bak2
+
+# OS
+.DS_Store
+
+# WSL / venv
+.venv_wsl/
+__pycache__/
+*.pyc
+
+# Bench backups
+*.bak
+*.bak2
+
