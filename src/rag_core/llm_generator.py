@@ -2,10 +2,40 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Dict, List, Any, Optional
-
+import re
 from rag_core.generator import GeneratorConfig, _format_citation, _one_line
 from rag_core.llm_backend import LLMClient
 
+_NO_ANSWER_PATTERNS = [
+    r"\bno (hay|existe) (evidencia|informaci[oó]n)\b",
+    r"\binsuficiente (evidencia|informaci[oó]n)\b",
+    r"\bno (puedo|es posible) (concluir|determinar)\b",
+    r"\bla evidencia proporcionada no contiene\b",
+    r"\bno contiene informaci[oó]n\b",
+    r"\bno especifica\b",
+    r"\bno se especifica\b",
+    r"\bno indica\b",
+    r"\bno se indica\b",
+    r"\bno menciona\b",
+    r"\bno se menciona\b",
+    r"\bno detalla\b",
+    r"\bno se detalla\b",
+    r"\bno define\b",
+    r"\bno se define\b",
+    r"\bno establece\b",
+    r"\bno se establece\b",
+    r"\bno incluye\b",
+    r"\bno se incluye\b",
+]
+
+def _looks_like_no_answer(text: str) -> bool:
+    t = (text or "").strip()
+    if not t:
+        return False
+    # (Opcional) futuro: si algún día usas sentinel "NO_ANSWER ..."
+    if t.upper().startswith("NO_ANSWER"):
+        return True
+    return any(re.search(p, t, flags=re.IGNORECASE) for p in _NO_ANSWER_PATTERNS)
 
 @dataclass(frozen=True)
 class LLMGeneratorConfig(GeneratorConfig):
@@ -89,9 +119,11 @@ class LLMGenerator:
         answer_text = self.llm.complete(prompt).strip()
 
         # Regla de contrato: si require_citations, añadimos un bloque final con citas usadas
-        if self.cfg.require_citations and citations:
-            cite_lines = [f"- {_format_citation(h)}" for h in top]
-            answer_text = answer_text + "\n\nCitas:\n" + "\n".join(cite_lines)
+        # Política de higiene: si la respuesta parece NO_ANSWER (rechazo), NO adjuntamos citas
+        # para evitar dar falsa sensación de respaldo documental.
+        if self.cfg.require_citations and citations and (not _looks_like_no_answer(answer_text)):
+         cite_lines = [f"- {_format_citation(h)}" for h in top]
+         answer_text = answer_text + "\n\nCitas:\n" + "\n".join(cite_lines)
 
         return {
             "answer": answer_text,
