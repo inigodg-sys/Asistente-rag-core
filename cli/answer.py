@@ -15,7 +15,7 @@ def main() -> int:
     p.add_argument("--meta", default="data/index/meta.jsonl")
     p.add_argument("--model", default="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
     p.add_argument("--device", default=None)
-    p.add_argument("--max_sources", type=int, default=3)
+    p.add_argument("--max_sources", type=int, default=10)
     p.add_argument("--min_score", type=float, default=None)
     p.add_argument("--backend", choices=["deterministic", "mock-llm", "openai"], default="deterministic")
     p.add_argument("--llm_model", type=str, default="gpt-4.1-mini")
