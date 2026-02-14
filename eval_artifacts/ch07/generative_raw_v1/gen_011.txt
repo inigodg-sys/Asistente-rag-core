@@ -1,0 +1,20 @@
+1) La fórmula de EGF es:  
+**EGF = 0,35·GF1 + 0,50·GF2 + 0,15·GF3**  
+Reglas:  
+- Si el puntaje ponderado final de EGF es < 50 → EGF = 0.  
+- Si GF1 = 0 o GF2 = 0 o GF3 = 0 → EGF = 0.
+
+2) El puntaje correspondiente en GF1 para el rango de buses '>=4000' es:  
+**25**.
+
+Citas:
+- [05_Evaluacion_adjudicacion:5:8 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [a10_funcionalidades_adicionales:row:28 | None | data\raw\csv\a10_funcionalidades_adicionales.csv]
+- [A13_valores_de_reposicion:preamble:1 | preamble | data\raw\web\A13_valores_de_reposicion.md]
+- [experiencia_gf1:row:0 | None | data\raw\csv\experiencia_gf1.csv]
+- [experiencia_eipu:row:0 | None | data\raw\csv\experiencia_eipu.csv]
+- [A07_formulario_experiencia_GF:preamble:1 | preamble | data\raw\web\A07_formulario_experiencia_GF.md]
+- [A12_formulario_de_oferta_economica:preamble:1 | preamble | data\raw\web\A12_formulario_de_oferta_economica.md]
+- [a10_funcionalidades_adicionales:row:16 | None | data\raw\csv\a10_funcionalidades_adicionales.csv]
+- [a10_funcionalidades_adicionales:row:17 | None | data\raw\csv\a10_funcionalidades_adicionales.csv]
+- [05_Evaluacion_adjudicacion:5:10 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]

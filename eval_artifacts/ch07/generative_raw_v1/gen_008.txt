@@ -1,0 +1,13 @@
+Según el cronograma, la publicación del registro de Oferentes se realiza con posterioridad al vencimiento del plazo para la presentación de las ofertas y antes de la apertura de las ofertas técnicas. Por lo tanto, este registro se publica entre la presentación de ofertas y la apertura de ofertas técnicas.
+
+Citas:
+- [cronograma_licitacion:row:5 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:7 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:6 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:15 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:44 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [cronograma_licitacion:row:0 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:1 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:4 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:35 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [05_Evaluacion_adjudicacion:5:13 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]

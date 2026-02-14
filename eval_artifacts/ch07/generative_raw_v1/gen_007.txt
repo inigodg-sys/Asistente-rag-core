@@ -1,0 +1,16 @@
+Para la capacitación, el mínimo de personas a capacitar es:
+
+- Personal de COF: 300 personas.
+- Jefe de sala del COF: 30 personas.
+
+Citas:
+- [a11_personas_capacitar:row:9 | None | data\raw\csv\a11_personas_capacitar.csv]
+- [a11_personas_capacitar:row:7 | None | data\raw\csv\a11_personas_capacitar.csv]
+- [A11_formulario_plan_de_capacitacion:preamble:4 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]
+- [a11_personas_capacitar:row:8 | None | data\raw\csv\a11_personas_capacitar.csv]
+- [a11_personas_capacitar:row:6 | None | data\raw\csv\a11_personas_capacitar.csv]
+- [A11_formulario_plan_de_capacitacion:preamble:3 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]
+- [a11_personas_capacitar:row:11 | None | data\raw\csv\a11_personas_capacitar.csv]
+- [A11_formulario_plan_de_capacitacion:preamble:6 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]
+- [A11_formulario_plan_de_capacitacion:preamble:7 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]
+- [A11_formulario_plan_de_capacitacion:preamble:10 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]

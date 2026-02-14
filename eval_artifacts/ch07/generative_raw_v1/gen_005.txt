@@ -1,0 +1,3 @@
+En caso de empate entre dos o más ofertas, se aplican los criterios de desempate en el siguiente orden: 1. Mayor puntaje en… (el texto no especifica el criterio completo). Si el empate persiste y un oferente no acepta aumentar la garantía, su oferta se considera desistida y se adjudica al siguiente oferente con mejor puntaje final. 
+
+La evidencia no proporciona el detalle completo del orden de los criterios de desempate ni qué ocurre si el empate continúa después de aplicar dichos criterios.

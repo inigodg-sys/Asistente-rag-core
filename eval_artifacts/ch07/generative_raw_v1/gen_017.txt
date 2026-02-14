@@ -1,0 +1,19 @@
+La apertura de las ofertas económicas se realiza en un acto público por la Comisión, en el plazo señalado en el cronograma, y solo se abren las ofertas económicas asociadas a las ofertas técnicamente aceptables (Artículo 5.3). 
+
+El acta de apertura que levanta la Comisión debe contener:  
+- La individualización de los integrantes presentes.  
+- Las ofertas económicas abiertas.  
+
+No se especifican en la evidencia otros detalles que deba contener el acta.
+
+Citas:
+- [05_Evaluacion_adjudicacion:5:14 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [05_Evaluacion_adjudicacion:5:13 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [05_Evaluacion_adjudicacion:5:20 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [def:2.25 | 2.25 | data\raw\json\definiciones.json]
+- [03_de_la_licitacion:3:47 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:80 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [cronograma_licitacion:row:5 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:81 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [A12_formulario_de_oferta_economica:preamble:0 | preamble | data\raw\web\A12_formulario_de_oferta_economica.md]
+- [04_de_las_ofertas:4:27 | 4 | data\raw\web\04_de_las_ofertas.md]

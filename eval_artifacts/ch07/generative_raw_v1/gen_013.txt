@@ -1,0 +1,15 @@
+El monto de la garantía de seriedad de la oferta es de diez mil Unidades de Fomento (10.000 UF). La vigencia mínima de esta garantía no podrá ser inferior a ciento ochenta (180) días contados desde la fecha establecida.
+
+La Unidad de Fomento (UF) es una unidad fijada por el Banco Central de Chile, reajustable de acuerdo a la variación del índice de precios al consumidor (IPC). El valor de la UF es el que fija el Banco Central en conformidad con la ley.
+
+Citas:
+- [A12_formulario_de_oferta_economica:preamble:4 | preamble | data\raw\web\A12_formulario_de_oferta_economica.md]
+- [04_de_las_ofertas:4:18 | 4 | data\raw\web\04_de_las_ofertas.md]
+- [03_de_la_licitacion:3:76 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [04_de_las_ofertas:4:17 | 4 | data\raw\web\04_de_las_ofertas.md]
+- [03_de_la_licitacion:3:64 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [A12_formulario_de_oferta_economica:preamble:2 | preamble | data\raw\web\A12_formulario_de_oferta_economica.md]
+- [def:2.38 | 2.38 | data\raw\json\definiciones.json]
+- [A12_formulario_de_oferta_economica:preamble:1 | preamble | data\raw\web\A12_formulario_de_oferta_economica.md]
+- [04_de_las_ofertas:4:34 | 4 | data\raw\web\04_de_las_ofertas.md]
+- [02_definiciones:2:13 | 2 | data\raw\web\02_definiciones.md]

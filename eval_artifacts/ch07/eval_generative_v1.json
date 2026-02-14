@@ -1,0 +1,712 @@
+{
+  "summary": {
+    "gold_file": "eval/gold_generative_v1.csv",
+    "n_questions": 20,
+    "k": 20,
+    "min_score": 0.35,
+    "max_sources": 10,
+    "backend": "openai",
+    "llm_model": "gpt-4.1-mini",
+    "device": "cpu",
+    "has_citas_rate": 0.85,
+    "mean_citation_coverage": 0.8,
+    "citation_only_from_used_rate": 1.0,
+    "refusal_rate": 0.1,
+    "raw_dir": "reports/generative_raw_v1"
+  },
+  "results": [
+    {
+      "qid": "gen_001",
+      "question": "En el cronograma, ¿cuál es el plazo para 'Respuesta a las consultas' y cuál es la ventana temporal para 'Presentación de ofertas'? Indica desde qué hito se cuenta cada plazo.",
+      "expected_ids": [
+        "cronograma_licitacion:row:3",
+        "cronograma_licitacion:row:4"
+      ],
+      "used_hit_ids": [
+        "cronograma_licitacion:row:4",
+        "cronograma_licitacion:row:6",
+        "03_de_la_licitacion:3:15",
+        "cronograma_licitacion:row:3",
+        "cronograma_licitacion:row:1",
+        "cronograma_licitacion:row:5",
+        "03_de_la_licitacion:3:14",
+        "03_de_la_licitacion:3:44",
+        "cronograma_licitacion:row:0",
+        "03_de_la_licitacion:3:43"
+      ],
+      "cited_ids": [
+        "cronograma_licitacion:row:4",
+        "cronograma_licitacion:row:6",
+        "03_de_la_licitacion:3:15",
+        "cronograma_licitacion:row:3",
+        "cronograma_licitacion:row:1",
+        "cronograma_licitacion:row:5",
+        "03_de_la_licitacion:3:14",
+        "03_de_la_licitacion:3:44",
+        "cronograma_licitacion:row:0",
+        "03_de_la_licitacion:3:43"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_001.txt"
+    },
+    {
+      "qid": "gen_002",
+      "question": "Según el cronograma, ¿cuál es el plazo de la 'Evaluación técnica' y cuál es el plazo de la 'Evaluación económica y evaluación final'? Indica el evento desde el que se cuentan.",
+      "expected_ids": [
+        "cronograma_licitacion:row:8",
+        "cronograma_licitacion:row:10"
+      ],
+      "used_hit_ids": [],
+      "cited_ids": [],
+      "has_citas_block": false,
+      "citas_count": 0,
+      "citation_coverage": 0.0,
+      "citation_only_from_used": true,
+      "contains_refusal": true,
+      "raw_path": "reports/generative_raw_v1/gen_002.txt"
+    },
+    {
+      "qid": "gen_003",
+      "question": "En el cronograma, ¿cuál es el plazo para 'Dictación de Resolución de Adjudicación' y cómo se relaciona temporalmente con la etapa de 'Evaluación económica y evaluación final'?",
+      "expected_ids": [
+        "cronograma_licitacion:row:10",
+        "cronograma_licitacion:row:11"
+      ],
+      "used_hit_ids": [
+        "cronograma_licitacion:row:11",
+        "03_de_la_licitacion:3:18",
+        "cronograma_licitacion:row:3",
+        "cronograma_licitacion:row:4",
+        "cronograma_licitacion:row:9",
+        "cronograma_licitacion:row:6",
+        "03_de_la_licitacion:3:32",
+        "05_Evaluacion_adjudicacion:5:1",
+        "03_de_la_licitacion:3:15",
+        "cronograma_licitacion:row:8"
+      ],
+      "cited_ids": [
+        "cronograma_licitacion:row:11",
+        "03_de_la_licitacion:3:18",
+        "cronograma_licitacion:row:3",
+        "cronograma_licitacion:row:4",
+        "cronograma_licitacion:row:9",
+        "cronograma_licitacion:row:6",
+        "03_de_la_licitacion:3:32",
+        "05_Evaluacion_adjudicacion:5:1",
+        "03_de_la_licitacion:3:15",
+        "cronograma_licitacion:row:8"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 0.5,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_003.txt"
+    },
+    {
+      "qid": "gen_004",
+      "question": "¿Cómo se calcula la Experiencia en Gestión de Flota (EGF) y en qué condiciones se fuerza EGF=0?",
+      "expected_ids": [
+        "05_Evaluacion_adjudicacion:5:8"
+      ],
+      "used_hit_ids": [
+        "05_Evaluacion_adjudicacion:5:8",
+        "A08_formulario_experiencia_EIPU:preamble:0",
+        "A07_formulario_experiencia_GF:preamble:0",
+        "05_Evaluacion_adjudicacion:5:11",
+        "A08_formulario_experiencia_EIPU:2:0",
+        "05_Evaluacion_adjudicacion:5:10",
+        "05_Evaluacion_adjudicacion:5:7",
+        "A09_formulario_experiencia_ECPU:2:0",
+        "05_Evaluacion_adjudicacion:5:15",
+        "A07_formulario_experiencia_GF:preamble:1"
+      ],
+      "cited_ids": [
+        "05_Evaluacion_adjudicacion:5:8",
+        "A08_formulario_experiencia_EIPU:preamble:0",
+        "A07_formulario_experiencia_GF:preamble:0",
+        "05_Evaluacion_adjudicacion:5:11",
+        "A08_formulario_experiencia_EIPU:2:0",
+        "05_Evaluacion_adjudicacion:5:10",
+        "05_Evaluacion_adjudicacion:5:7",
+        "A09_formulario_experiencia_ECPU:2:0",
+        "05_Evaluacion_adjudicacion:5:15",
+        "A07_formulario_experiencia_GF:preamble:1"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_004.txt"
+    },
+    {
+      "qid": "gen_005",
+      "question": "En caso de empate entre ofertas, ¿cuál es el orden de los criterios de desempate y qué ocurre si el empate persiste?",
+      "expected_ids": [
+        "05_Evaluacion_adjudicacion:5:20"
+      ],
+      "used_hit_ids": [],
+      "cited_ids": [],
+      "has_citas_block": false,
+      "citas_count": 0,
+      "citation_coverage": 0.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_005.txt"
+    },
+    {
+      "qid": "gen_006",
+      "question": "Según el apartado 3.3.2 Inhabilidades, indica una causal de inhabilidad para participar. Además, según la Declaración de Inhabilidades (A05), ¿qué declara el oferente bajo juramento respecto a estas causales?",
+      "expected_ids": [
+        "03_de_la_licitacion:3:3",
+        "A02_A05_antecedentes_generales:A05:0"
+      ],
+      "used_hit_ids": [
+        "A02_A05_antecedentes_generales:A05:0",
+        "03_de_la_licitacion:3:10",
+        "03_de_la_licitacion:3:81",
+        "05_Evaluacion_adjudicacion:5:6",
+        "03_de_la_licitacion:3:83",
+        "03_de_la_licitacion:3:80",
+        "03_de_la_licitacion:3:12",
+        "03_de_la_licitacion:3:50",
+        "03_de_la_licitacion:3:38",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6"
+      ],
+      "cited_ids": [
+        "A02_A05_antecedentes_generales:A05:0",
+        "03_de_la_licitacion:3:10",
+        "03_de_la_licitacion:3:81",
+        "05_Evaluacion_adjudicacion:5:6",
+        "03_de_la_licitacion:3:83",
+        "03_de_la_licitacion:3:80",
+        "03_de_la_licitacion:3:12",
+        "03_de_la_licitacion:3:50",
+        "03_de_la_licitacion:3:38",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 0.5,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_006.txt"
+    },
+    {
+      "qid": "gen_007",
+      "question": "Capacitación: ¿cuántas personas mínimo deben capacitarse para 'Personal de COF' y para 'Jefe de sala del COF'?",
+      "expected_ids": [
+        "a11_personas_capacitar:row:6",
+        "a11_personas_capacitar:row:7"
+      ],
+      "used_hit_ids": [
+        "a11_personas_capacitar:row:9",
+        "a11_personas_capacitar:row:7",
+        "A11_formulario_plan_de_capacitacion:preamble:4",
+        "a11_personas_capacitar:row:8",
+        "a11_personas_capacitar:row:6",
+        "A11_formulario_plan_de_capacitacion:preamble:3",
+        "a11_personas_capacitar:row:11",
+        "A11_formulario_plan_de_capacitacion:preamble:6",
+        "A11_formulario_plan_de_capacitacion:preamble:7",
+        "A11_formulario_plan_de_capacitacion:preamble:10"
+      ],
+      "cited_ids": [
+        "a11_personas_capacitar:row:9",
+        "a11_personas_capacitar:row:7",
+        "A11_formulario_plan_de_capacitacion:preamble:4",
+        "a11_personas_capacitar:row:8",
+        "a11_personas_capacitar:row:6",
+        "A11_formulario_plan_de_capacitacion:preamble:3",
+        "a11_personas_capacitar:row:11",
+        "A11_formulario_plan_de_capacitacion:preamble:6",
+        "A11_formulario_plan_de_capacitacion:preamble:7",
+        "A11_formulario_plan_de_capacitacion:preamble:10"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_007.txt"
+    },
+    {
+      "qid": "gen_008",
+      "question": "Según el cronograma, ¿cuándo se publica el registro de Oferentes y con qué hito se relaciona (presentación/apertura de ofertas técnicas)?",
+      "expected_ids": [
+        "cronograma_licitacion:row:5",
+        "cronograma_licitacion:row:6"
+      ],
+      "used_hit_ids": [
+        "cronograma_licitacion:row:5",
+        "cronograma_licitacion:row:7",
+        "cronograma_licitacion:row:6",
+        "03_de_la_licitacion:3:15",
+        "03_de_la_licitacion:3:44",
+        "cronograma_licitacion:row:0",
+        "cronograma_licitacion:row:1",
+        "cronograma_licitacion:row:4",
+        "03_de_la_licitacion:3:35",
+        "05_Evaluacion_adjudicacion:5:13"
+      ],
+      "cited_ids": [
+        "cronograma_licitacion:row:5",
+        "cronograma_licitacion:row:7",
+        "cronograma_licitacion:row:6",
+        "03_de_la_licitacion:3:15",
+        "03_de_la_licitacion:3:44",
+        "cronograma_licitacion:row:0",
+        "cronograma_licitacion:row:1",
+        "cronograma_licitacion:row:4",
+        "03_de_la_licitacion:3:35",
+        "05_Evaluacion_adjudicacion:5:13"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_008.txt"
+    },
+    {
+      "qid": "gen_009",
+      "question": "Referencias requeridas: en los formularios de experiencia GF (tablas resumen), ¿qué tipo de evidencia/documentos se piden para acreditar la experiencia? Da un ejemplo de lo que debe adjuntarse.",
+      "expected_ids": [
+        "A07_formulario_experiencia_GF:preamble:5",
+        "A07_formulario_experiencia_GF:preamble:9"
+      ],
+      "used_hit_ids": [
+        "04_de_las_ofertas:4:1",
+        "03_de_la_licitacion:3:93",
+        "A11_formulario_plan_de_capacitacion:preamble:3",
+        "A11_formulario_plan_de_capacitacion:preamble:4",
+        "A08_formulario_experiencia_EIPU:4:0",
+        "03_de_la_licitacion:3:37",
+        "A09_formulario_experiencia_ECPU:4:0",
+        "A11_formulario_plan_de_capacitacion:preamble:5",
+        "A07_formulario_experiencia_GF:preamble:9",
+        "A07_formulario_experiencia_GF:preamble:5"
+      ],
+      "cited_ids": [
+        "04_de_las_ofertas:4:1",
+        "03_de_la_licitacion:3:93",
+        "A11_formulario_plan_de_capacitacion:preamble:3",
+        "A11_formulario_plan_de_capacitacion:preamble:4",
+        "A08_formulario_experiencia_EIPU:4:0",
+        "03_de_la_licitacion:3:37",
+        "A09_formulario_experiencia_ECPU:4:0",
+        "A11_formulario_plan_de_capacitacion:preamble:5",
+        "A07_formulario_experiencia_GF:preamble:9",
+        "A07_formulario_experiencia_GF:preamble:5"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_009.txt"
+    },
+    {
+      "qid": "gen_010",
+      "question": "Idioma de la oferta: ¿en qué idioma deben presentarse ofertas, anexos y documentos? Si un documento está en otro idioma, ¿qué se exige respecto a la traducción?",
+      "expected_ids": [
+        "03_de_la_licitacion:3:65",
+        "03_de_la_licitacion:3:66"
+      ],
+      "used_hit_ids": [
+        "03_de_la_licitacion:3:65",
+        "03_de_la_licitacion:3:68",
+        "03_de_la_licitacion:3:67",
+        "def:2.25",
+        "03_de_la_licitacion:3:66",
+        "03_de_la_licitacion:3:47",
+        "A02_A05_antecedentes_generales:A04:1",
+        "02_definiciones:2:13",
+        "03_de_la_licitacion:3:69",
+        "03_de_la_licitacion:3:96"
+      ],
+      "cited_ids": [
+        "03_de_la_licitacion:3:65",
+        "03_de_la_licitacion:3:68",
+        "03_de_la_licitacion:3:67",
+        "def:2.25",
+        "03_de_la_licitacion:3:66",
+        "03_de_la_licitacion:3:47",
+        "A02_A05_antecedentes_generales:A04:1",
+        "02_definiciones:2:13",
+        "03_de_la_licitacion:3:69",
+        "03_de_la_licitacion:3:96"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_010.txt"
+    },
+    {
+      "qid": "gen_011",
+      "question": "En la evaluación técnica: (1) ¿cuál es la fórmula de EGF y (2) qué puntaje corresponde en GF1 para rango de buses '>=4000'?",
+      "expected_ids": [
+        "05_Evaluacion_adjudicacion:5:8",
+        "experiencia_gf1:row:0"
+      ],
+      "used_hit_ids": [
+        "05_Evaluacion_adjudicacion:5:8",
+        "a10_funcionalidades_adicionales:row:28",
+        "A13_valores_de_reposicion:preamble:1",
+        "experiencia_gf1:row:0",
+        "experiencia_eipu:row:0",
+        "A07_formulario_experiencia_GF:preamble:1",
+        "A12_formulario_de_oferta_economica:preamble:1",
+        "a10_funcionalidades_adicionales:row:16",
+        "a10_funcionalidades_adicionales:row:17",
+        "05_Evaluacion_adjudicacion:5:10"
+      ],
+      "cited_ids": [
+        "05_Evaluacion_adjudicacion:5:8",
+        "a10_funcionalidades_adicionales:row:28",
+        "A13_valores_de_reposicion:preamble:1",
+        "experiencia_gf1:row:0",
+        "experiencia_eipu:row:0",
+        "A07_formulario_experiencia_GF:preamble:1",
+        "A12_formulario_de_oferta_economica:preamble:1",
+        "a10_funcionalidades_adicionales:row:16",
+        "a10_funcionalidades_adicionales:row:17",
+        "05_Evaluacion_adjudicacion:5:10"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_011.txt"
+    },
+    {
+      "qid": "gen_012",
+      "question": "Según las definiciones, ¿qué es un 'Oferente' y qué es una 'Oferta'? Y según adjudicación, ¿qué criterio se aplica primero para desempatar entre ofertas?",
+      "expected_ids": [
+        "def:2.24",
+        "def:2.25",
+        "05_Evaluacion_adjudicacion:5:20"
+      ],
+      "used_hit_ids": [
+        "def:2.24",
+        "05_Evaluacion_adjudicacion:5:20",
+        "03_de_la_licitacion:3:47",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:9:0",
+        "def:2.25",
+        "03_de_la_licitacion:3:99",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6",
+        "03_de_la_licitacion:3:80",
+        "A12_formulario_de_oferta_economica:preamble:5",
+        "03_de_la_licitacion:3:84"
+      ],
+      "cited_ids": [
+        "def:2.24",
+        "05_Evaluacion_adjudicacion:5:20",
+        "03_de_la_licitacion:3:47",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:9:0",
+        "def:2.25",
+        "03_de_la_licitacion:3:99",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6",
+        "03_de_la_licitacion:3:80",
+        "A12_formulario_de_oferta_economica:preamble:5",
+        "03_de_la_licitacion:3:84"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_012.txt"
+    },
+    {
+      "qid": "gen_013",
+      "question": "Sobre la 'Garantía de seriedad de la oferta': ¿cuál es el monto (en UF) y cuál es la vigencia mínima (en días)? Además, ¿qué es la Unidad de Fomento (UF) según definiciones?",
+      "expected_ids": [
+        "03_de_la_licitacion:3:76",
+        "def:2.38"
+      ],
+      "used_hit_ids": [
+        "A12_formulario_de_oferta_economica:preamble:4",
+        "04_de_las_ofertas:4:18",
+        "03_de_la_licitacion:3:76",
+        "04_de_las_ofertas:4:17",
+        "03_de_la_licitacion:3:64",
+        "A12_formulario_de_oferta_economica:preamble:2",
+        "def:2.38",
+        "A12_formulario_de_oferta_economica:preamble:1",
+        "04_de_las_ofertas:4:34",
+        "02_definiciones:2:13"
+      ],
+      "cited_ids": [
+        "A12_formulario_de_oferta_economica:preamble:4",
+        "04_de_las_ofertas:4:18",
+        "03_de_la_licitacion:3:76",
+        "04_de_las_ofertas:4:17",
+        "03_de_la_licitacion:3:64",
+        "A12_formulario_de_oferta_economica:preamble:2",
+        "def:2.38",
+        "A12_formulario_de_oferta_economica:preamble:1",
+        "04_de_las_ofertas:4:34",
+        "02_definiciones:2:13"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_013.txt"
+    },
+    {
+      "qid": "gen_014",
+      "question": "En caso de discrepancia entre documentos, ¿qué regla de prelación se aplica según 'Interpretación e información'? Y según definiciones, ¿qué se entiende por 'Bases de Licitación'?",
+      "expected_ids": [
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:9:0",
+        "def:2.5"
+      ],
+      "used_hit_ids": [],
+      "cited_ids": [],
+      "has_citas_block": false,
+      "citas_count": 0,
+      "citation_coverage": 0.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_014.txt"
+    },
+    {
+      "qid": "gen_015",
+      "question": "Si el adjudicatario no firma el contrato dentro de plazo o no entrega la documentación necesaria, ¿qué consecuencias se establecen? Relaciónalo con la lógica de adjudicar al siguiente oferente mejor evaluado.",
+      "expected_ids": [
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6",
+        "05_Evaluacion_adjudicacion:5:20"
+      ],
+      "used_hit_ids": [
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6",
+        "03_de_la_licitacion:3:84",
+        "05_Evaluacion_adjudicacion:5:20",
+        "03_de_la_licitacion:3:78",
+        "03_de_la_licitacion:3:82",
+        "03_de_la_licitacion:3:80",
+        "03_de_la_licitacion:3:112",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:4",
+        "03_de_la_licitacion:3:81",
+        "03_de_la_licitacion:3:83"
+      ],
+      "cited_ids": [
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6",
+        "03_de_la_licitacion:3:84",
+        "05_Evaluacion_adjudicacion:5:20",
+        "03_de_la_licitacion:3:78",
+        "03_de_la_licitacion:3:82",
+        "03_de_la_licitacion:3:80",
+        "03_de_la_licitacion:3:112",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:4",
+        "03_de_la_licitacion:3:81",
+        "03_de_la_licitacion:3:83"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_015.txt"
+    },
+    {
+      "qid": "gen_016",
+      "question": "Inadmisibilidad: si una oferta se declara inadmisible por inhabilidades del Art. 3.3.2, ¿qué efecto tiene sobre la garantía de seriedad?",
+      "expected_ids": [
+        "03_de_la_licitacion:3:81",
+        "03_de_la_licitacion:3:80"
+      ],
+      "used_hit_ids": [
+        "03_de_la_licitacion:3:81",
+        "03_de_la_licitacion:3:11",
+        "03_de_la_licitacion:3:10",
+        "03_de_la_licitacion:3:80",
+        "03_de_la_licitacion:3:12",
+        "03_de_la_licitacion:3:82",
+        "A02_A05_antecedentes_generales:A05:0",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6",
+        "05_Evaluacion_adjudicacion:5:14",
+        "03_de_la_licitacion:3:98"
+      ],
+      "cited_ids": [
+        "03_de_la_licitacion:3:81",
+        "03_de_la_licitacion:3:11",
+        "03_de_la_licitacion:3:10",
+        "03_de_la_licitacion:3:80",
+        "03_de_la_licitacion:3:12",
+        "03_de_la_licitacion:3:82",
+        "A02_A05_antecedentes_generales:A05:0",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6",
+        "05_Evaluacion_adjudicacion:5:14",
+        "03_de_la_licitacion:3:98"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_016.txt"
+    },
+    {
+      "qid": "gen_017",
+      "question": "Apertura de ofertas económicas: ¿en qué condiciones se abren las ofertas económicas y qué debe contener el acta de apertura?",
+      "expected_ids": [
+        "05_Evaluacion_adjudicacion:5:14",
+        "05_Evaluacion_adjudicacion:5:13"
+      ],
+      "used_hit_ids": [
+        "05_Evaluacion_adjudicacion:5:14",
+        "05_Evaluacion_adjudicacion:5:13",
+        "05_Evaluacion_adjudicacion:5:20",
+        "def:2.25",
+        "03_de_la_licitacion:3:47",
+        "03_de_la_licitacion:3:80",
+        "cronograma_licitacion:row:5",
+        "03_de_la_licitacion:3:81",
+        "A12_formulario_de_oferta_economica:preamble:0",
+        "04_de_las_ofertas:4:27"
+      ],
+      "cited_ids": [
+        "05_Evaluacion_adjudicacion:5:14",
+        "05_Evaluacion_adjudicacion:5:13",
+        "05_Evaluacion_adjudicacion:5:20",
+        "def:2.25",
+        "03_de_la_licitacion:3:47",
+        "03_de_la_licitacion:3:80",
+        "cronograma_licitacion:row:5",
+        "03_de_la_licitacion:3:81",
+        "A12_formulario_de_oferta_economica:preamble:0",
+        "04_de_las_ofertas:4:27"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": true,
+      "raw_path": "reports/generative_raw_v1/gen_017.txt"
+    },
+    {
+      "qid": "gen_018",
+      "question": "Idioma y traducciones: ¿en qué idioma deben presentarse ofertas/anexos/documentos y qué requisitos se exigen para traducción oficial (incluyendo validación del traductor)?",
+      "expected_ids": [
+        "03_de_la_licitacion:3:65",
+        "03_de_la_licitacion:3:67"
+      ],
+      "used_hit_ids": [
+        "03_de_la_licitacion:3:65",
+        "03_de_la_licitacion:3:67",
+        "03_de_la_licitacion:3:68",
+        "03_de_la_licitacion:3:66",
+        "03_de_la_licitacion:3:69",
+        "03_de_la_licitacion:3:51",
+        "03_de_la_licitacion:3:29",
+        "02_definiciones:2:13",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:9:0",
+        "04_de_las_ofertas:4:16"
+      ],
+      "cited_ids": [
+        "03_de_la_licitacion:3:65",
+        "03_de_la_licitacion:3:67",
+        "03_de_la_licitacion:3:68",
+        "03_de_la_licitacion:3:66",
+        "03_de_la_licitacion:3:69",
+        "03_de_la_licitacion:3:51",
+        "03_de_la_licitacion:3:29",
+        "02_definiciones:2:13",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:9:0",
+        "04_de_las_ofertas:4:16"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_018.txt"
+    },
+    {
+      "qid": "gen_019",
+      "question": "¿A quién se extiende la obligación de confidencialidad (subcontratistas/consultores/terceros) y hasta cuándo subsiste (después del término)?",
+      "expected_ids": [
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:7:1",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:7:0"
+      ],
+      "used_hit_ids": [
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:7:1",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:7:0",
+        "A08_formulario_experiencia_EIPU:4:0",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:3",
+        "04_de_las_ofertas:4:6",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:5",
+        "A09_formulario_experiencia_ECPU:4:0",
+        "03_de_la_licitacion:3:38",
+        "A02_A05_antecedentes_generales:A03:2",
+        "04_de_las_ofertas:4:11"
+      ],
+      "cited_ids": [
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:7:1",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:7:0",
+        "A08_formulario_experiencia_EIPU:4:0",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:3",
+        "04_de_las_ofertas:4:6",
+        "06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:5",
+        "A09_formulario_experiencia_ECPU:4:0",
+        "03_de_la_licitacion:3:38",
+        "A02_A05_antecedentes_generales:A03:2",
+        "04_de_las_ofertas:4:11"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_019.txt"
+    },
+    {
+      "qid": "gen_020",
+      "question": "Cronograma: ¿cuándo se publica el registro de Oferentes y cómo se relaciona con la apertura de ofertas técnicas?",
+      "expected_ids": [
+        "cronograma_licitacion:row:5",
+        "cronograma_licitacion:row:6"
+      ],
+      "used_hit_ids": [
+        "cronograma_licitacion:row:5",
+        "cronograma_licitacion:row:7",
+        "def:2.25",
+        "cronograma_licitacion:row:0",
+        "03_de_la_licitacion:3:35",
+        "def:2.33",
+        "03_de_la_licitacion:3:44",
+        "04_de_las_ofertas:4:0",
+        "def:2.24",
+        "cronograma_licitacion:row:6"
+      ],
+      "cited_ids": [
+        "cronograma_licitacion:row:5",
+        "cronograma_licitacion:row:7",
+        "def:2.25",
+        "cronograma_licitacion:row:0",
+        "03_de_la_licitacion:3:35",
+        "def:2.33",
+        "03_de_la_licitacion:3:44",
+        "04_de_las_ofertas:4:0",
+        "def:2.24",
+        "cronograma_licitacion:row:6"
+      ],
+      "has_citas_block": true,
+      "citas_count": 10,
+      "citation_coverage": 1.0,
+      "citation_only_from_used": true,
+      "contains_refusal": false,
+      "raw_path": "reports/generative_raw_v1/gen_020.txt"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+La Experiencia en Gestión de Flota (EGF) se calcula con la fórmula:
+
+**EGF = 0,35·GF1 + 0,50·GF2 + 0,15·GF3**
+
+donde GF1, GF2 y GF3 son subcriterios que evalúan diferentes aspectos de la experiencia en gestión de flota.
+
+Se fuerza que EGF = 0 en las siguientes condiciones:
+- Si el puntaje ponderado final de EGF es menor a 50.
+- Si cualquiera de los valores GF1, GF2 o GF3 es igual a 0.
+
+Citas:
+- [05_Evaluacion_adjudicacion:5:8 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [A08_formulario_experiencia_EIPU:preamble:0 | preamble | data\raw\web\A08_formulario_experiencia_EIPU.md]
+- [A07_formulario_experiencia_GF:preamble:0 | preamble | data\raw\web\A07_formulario_experiencia_GF.md]
+- [05_Evaluacion_adjudicacion:5:11 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [A08_formulario_experiencia_EIPU:2:0 | 2 | data\raw\web\A08_formulario_experiencia_EIPU.md]
+- [05_Evaluacion_adjudicacion:5:10 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [05_Evaluacion_adjudicacion:5:7 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [A09_formulario_experiencia_ECPU:2:0 | 2 | data\raw\web\A09_formulario_experiencia_ECPU.md]
+- [05_Evaluacion_adjudicacion:5:15 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [A07_formulario_experiencia_GF:preamble:1 | preamble | data\raw\web\A07_formulario_experiencia_GF.md]

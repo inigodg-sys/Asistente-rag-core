@@ -1,0 +1,13 @@
+Si una oferta se declara inadmisible por inhabilidades del Art. 3.3.2, la garantía de seriedad de la oferta se hará efectiva, es decir, el Ministerio tiene derecho a cobrar dicha garantía. Esto se debe a que la garantía de seriedad se aplica especialmente en los casos en que la oferta es declarada inadmisible debido a que el oferente está afectado por alguna inhabilidad.
+
+Citas:
+- [03_de_la_licitacion:3:81 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:11 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:10 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:80 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:12 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:82 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [A02_A05_antecedentes_generales:A05:0 | A05 | data\raw\web\A02_A05_antecedentes_generales.md]
+- [06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6 | 6 | data\raw\web\06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion.md]
+- [05_Evaluacion_adjudicacion:5:14 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [03_de_la_licitacion:3:98 | 3 | data\raw\web\03_de_la_licitacion.md]

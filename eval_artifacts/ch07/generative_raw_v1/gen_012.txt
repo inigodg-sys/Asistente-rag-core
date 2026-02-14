@@ -1,0 +1,15 @@
+Un 'Oferente' es la persona o consorcio que se presenta a la licitación pública mediante una oferta, según las reglas establecidas en las bases. Una 'Oferta' es el conjunto de documentos que deben presentar los oferentes para participar en la licitación pública, detallando los aspectos generales, técnicos y económicos de lo ofrecido, conforme a lo establecido en las bases.
+
+En caso de empate entre dos o más ofertas, el criterio que se aplica primero para desempatar es el mayor puntaje en la evaluación.
+
+Citas:
+- [def:2.24 | 2.24 | data\raw\json\definiciones.json]
+- [05_Evaluacion_adjudicacion:5:20 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [03_de_la_licitacion:3:47 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:9:0 | 9 | data\raw\web\06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion.md]
+- [def:2.25 | 2.25 | data\raw\json\definiciones.json]
+- [03_de_la_licitacion:3:99 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6 | 6 | data\raw\web\06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion.md]
+- [03_de_la_licitacion:3:80 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [A12_formulario_de_oferta_economica:preamble:5 | preamble | data\raw\web\A12_formulario_de_oferta_economica.md]
+- [03_de_la_licitacion:3:84 | 3 | data\raw\web\03_de_la_licitacion.md]

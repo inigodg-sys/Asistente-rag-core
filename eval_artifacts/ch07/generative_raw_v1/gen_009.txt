@@ -1,0 +1,17 @@
+En los formularios de experiencia GF (tablas resumen), para acreditar la experiencia se solicitan cartas que acrediten dicha experiencia. Por ejemplo, en la Tabla N°2 — Resumen GF1 o en la Tabla N°6 — Resumen GF3 se debe adjuntar una carta que respalde cada proyecto reportado, indicando detalles como el nombre del proyecto y el número de buses involucrados.
+
+Ejemplo de lo que debe adjuntarse: una carta que acredite la experiencia en un proyecto específico, mencionando el nombre del proyecto y la cantidad de buses operados.
+
+No se dispone de información adicional sobre otros tipos de documentos o evidencia requerida.
+
+Citas:
+- [04_de_las_ofertas:4:1 | 4 | data\raw\web\04_de_las_ofertas.md]
+- [03_de_la_licitacion:3:93 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [A11_formulario_plan_de_capacitacion:preamble:3 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]
+- [A11_formulario_plan_de_capacitacion:preamble:4 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]
+- [A08_formulario_experiencia_EIPU:4:0 | 4 | data\raw\web\A08_formulario_experiencia_EIPU.md]
+- [03_de_la_licitacion:3:37 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [A09_formulario_experiencia_ECPU:4:0 | 4 | data\raw\web\A09_formulario_experiencia_ECPU.md]
+- [A11_formulario_plan_de_capacitacion:preamble:5 | preamble | data\raw\web\A11_formulario_plan_de_capacitacion.md]
+- [A07_formulario_experiencia_GF:preamble:9 | preamble | data\raw\web\A07_formulario_experiencia_GF.md]
+- [A07_formulario_experiencia_GF:preamble:5 | preamble | data\raw\web\A07_formulario_experiencia_GF.md]

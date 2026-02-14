@@ -1,0 +1,15 @@
+Según el apartado 3.3.2 Inhabilidades, una causal de inhabilidad para participar es que uno de los miembros del consorcio se encuentre afectado por alguna de las inhabilidades establecidas, lo que afecta al consorcio en su totalidad.
+
+Respecto a la Declaración de Inhabilidades (A05), el oferente declara bajo juramento que no se encuentra afectado por ninguna de las inhabilidades generales señaladas en las Bases de Licitación y la Ley Nº 19.886.
+
+Citas:
+- [A02_A05_antecedentes_generales:A05:0 | A05 | data\raw\web\A02_A05_antecedentes_generales.md]
+- [03_de_la_licitacion:3:10 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:81 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [05_Evaluacion_adjudicacion:5:6 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [03_de_la_licitacion:3:83 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:80 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:12 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:50 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:38 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6 | 6 | data\raw\web\06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion.md]

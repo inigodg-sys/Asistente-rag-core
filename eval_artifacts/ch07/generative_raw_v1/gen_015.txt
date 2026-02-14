@@ -1,0 +1,13 @@
+Si el adjudicatario no firma el contrato dentro del plazo establecido o no entrega la documentación necesaria para su suscripción, se entiende que desiste de la adjudicación. En consecuencia, el Ministerio podrá dejar sin efecto dicha adjudicación, hacer efectiva la garantía de seriedad de la oferta y adjudicar la licitación al siguiente oferente con mejor puntaje final en la evaluación. Esta lógica permite continuar con el proceso adjudicando al siguiente mejor evaluado para asegurar la continuidad y cumplimiento del procedimiento.
+
+Citas:
+- [06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:6 | 6 | data\raw\web\06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion.md]
+- [03_de_la_licitacion:3:84 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [05_Evaluacion_adjudicacion:5:20 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [03_de_la_licitacion:3:78 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:82 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:80 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:112 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion:6:4 | 6 | data\raw\web\06_al_09_obligaciones_confidencialidad_jurisdiccion_interpretacion.md]
+- [03_de_la_licitacion:3:81 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:83 | 3 | data\raw\web\03_de_la_licitacion.md]

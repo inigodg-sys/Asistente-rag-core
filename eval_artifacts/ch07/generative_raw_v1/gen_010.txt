@@ -1,0 +1,13 @@
+Las ofertas, sus anexos y todos los documentos que deban ser entregados con motivo de la licitación pública deben estar escritos en idioma español. Si un documento está emitido en un idioma distinto, debe presentarse acompañado de su debida traducción al español. Esta traducción debe ser oficial, realizada en el país de origen conforme a su normativa interna, o realizada por un traductor validado ante la autoridad del país donde se otorgó el documento, o por un traductor e intérprete afiliado al Colegio de Traductores e Intérpretes de Chile (COTICH) en la especialidad respectiva. No se considerará ningún antecedente en idioma extranjero sin la debida traducción conforme a lo dispuesto. Además, se asume la responsabilidad por el contenido y posibles errores, omisiones o deficiencias de la traducción.
+
+Citas:
+- [03_de_la_licitacion:3:65 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:68 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:67 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [def:2.25 | 2.25 | data\raw\json\definiciones.json]
+- [03_de_la_licitacion:3:66 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:47 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [A02_A05_antecedentes_generales:A04:1 | A04 | data\raw\web\A02_A05_antecedentes_generales.md]
+- [02_definiciones:2:13 | 2 | data\raw\web\02_definiciones.md]
+- [03_de_la_licitacion:3:69 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:96 | 3 | data\raw\web\03_de_la_licitacion.md]

@@ -1,0 +1,13 @@
+El plazo para la etapa de "Dictación de Resolución de Adjudicación" es hasta diez (10) días hábiles contados desde la fecha de publicación, en el sitio web, del acta de evaluación económica y evaluación final. Temporalmente, esta etapa ocurre después de la "Evaluación económica y evaluación final", ya que su plazo comienza a contarse a partir de la publicación del acta correspondiente a dicha evaluación.
+
+Citas:
+- [cronograma_licitacion:row:11 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:18 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [cronograma_licitacion:row:3 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:4 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:9 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:6 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:32 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [05_Evaluacion_adjudicacion:5:1 | 5 | data\raw\web\05_Evaluacion_adjudicacion.md]
+- [03_de_la_licitacion:3:15 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [cronograma_licitacion:row:8 | None | data\raw\csv\cronograma_licitacion.csv]

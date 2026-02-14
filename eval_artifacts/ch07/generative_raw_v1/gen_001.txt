@@ -1,0 +1,15 @@
+El plazo para "Respuesta a las consultas" es de veinticinco (25) días hábiles contados desde el vencimiento del plazo para hacer consultas a las bases.
+
+La ventana temporal para "Presentación de ofertas" es entre el trigésimo quinto (35°) día hábil y hasta el cuadragésimo (40°) día hábil contado desde el vencimiento del plazo para responder las consultas.
+
+Citas:
+- [cronograma_licitacion:row:4 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:6 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:15 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [cronograma_licitacion:row:3 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:1 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:5 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:14 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [03_de_la_licitacion:3:44 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [cronograma_licitacion:row:0 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:43 | 3 | data\raw\web\03_de_la_licitacion.md]

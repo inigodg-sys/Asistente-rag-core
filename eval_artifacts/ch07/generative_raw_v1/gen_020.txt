@@ -1,0 +1,13 @@
+El registro de Oferentes se publica con posterioridad al vencimiento del plazo para la presentación de las ofertas y antes de la apertura de las ofertas técnicas. La apertura de las ofertas técnicas ocurre el día hábil siguiente al vencimiento del plazo para la presentación de las ofertas, desde las 10:00 hasta las 18:00 horas. Por lo tanto, la publicación del registro de Oferentes se realiza en el intervalo entre el cierre de la presentación de ofertas y la apertura de las ofertas técnicas.
+
+Citas:
+- [cronograma_licitacion:row:5 | None | data\raw\csv\cronograma_licitacion.csv]
+- [cronograma_licitacion:row:7 | None | data\raw\csv\cronograma_licitacion.csv]
+- [def:2.25 | 2.25 | data\raw\json\definiciones.json]
+- [cronograma_licitacion:row:0 | None | data\raw\csv\cronograma_licitacion.csv]
+- [03_de_la_licitacion:3:35 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [def:2.33 | 2.33 | data\raw\json\definiciones.json]
+- [03_de_la_licitacion:3:44 | 3 | data\raw\web\03_de_la_licitacion.md]
+- [04_de_las_ofertas:4:0 | 4 | data\raw\web\04_de_las_ofertas.md]
+- [def:2.24 | 2.24 | data\raw\json\definiciones.json]
+- [cronograma_licitacion:row:6 | None | data\raw\csv\cronograma_licitacion.csv]
