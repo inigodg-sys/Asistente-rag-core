@@ -1,0 +1,29 @@
+{
+  "n_chunks": 7,
+  "by_doc_type": {
+    "tabla": 2,
+    "definicion": 2,
+    "normativa": 3
+  },
+  "by_source_ext": {
+    ".csv": 2,
+    ".json": 2,
+    ".html": 1,
+    ".md": 1,
+    ".txt": 1
+  },
+  "length_chars": {
+    "min": 17,
+    "mean": 36.86,
+    "max": 82
+  },
+  "sample_ids": [
+    "demo:row:0",
+    "demo:row:1",
+    "def:D1",
+    "def:D2",
+    "demo:preamble:0",
+    "demo:preamble:0",
+    "demo:preamble:0"
+  ]
+}

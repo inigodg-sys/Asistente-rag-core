@@ -1,0 +1,41 @@
+{
+  "mode": "smoke",
+  "python": "3.12.3 (main, Jan 22 2026, 20:57:42) [GCC 13.3.0]",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cwd": "/home/inigo/repos/Asistente-rag-core",
+  "git_head": "cc5fb2c01e3c85b5009805065336731b3ec5de75",
+  "cfg": {
+    "normative_target_chars": 800,
+    "normative_max_chars": 900,
+    "normative_overlap_chars": 120
+  },
+  "stats": {
+    "n_chunks": 7,
+    "by_doc_type": {
+      "tabla": 2,
+      "definicion": 2,
+      "normativa": 3
+    },
+    "by_source_ext": {
+      ".csv": 2,
+      ".json": 2,
+      ".html": 1,
+      ".md": 1,
+      ".txt": 1
+    },
+    "length_chars": {
+      "min": 17,
+      "mean": 36.86,
+      "max": 82
+    },
+    "sample_ids": [
+      "demo:row:0",
+      "demo:row:1",
+      "def:D1",
+      "def:D2",
+      "demo:preamble:0",
+      "demo:preamble:0",
+      "demo:preamble:0"
+    ]
+  }
+}

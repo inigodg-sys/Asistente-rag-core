@@ -54,6 +54,17 @@ def _write_mini_repo(repo_root: Path) -> None:
         "Intro.\n\n## 1 Alcance\nTexto del alcance.\n\n## 2 Requisitos\nR1: algo.\nR2: algo más.\n",
         encoding="utf-8",
     )
+
+    (repo_root / "data/raw/web/demo.txt").write_text(
+        "Documento TXT.\n\nSección 1\n- Punto A\n- Punto B\n\nFin.\n",
+        encoding="utf-8",
+    )
+
+    (repo_root / "data/raw/web/demo.html").write_text(
+        "<html><body><h1>Doc HTML</h1><p>Texto en <b>HTML</b>.</p><ul><li>Item 1</li><li>Item 2</li></ul></body></html>",
+        encoding="utf-8",
+    )
+
     (repo_root / "data/raw/csv/demo.csv").write_text(
         "col1,col2\na,1\nb,2\n",
         encoding="utf-8",
@@ -78,10 +89,15 @@ def _chunk_stats(chunks) -> Dict[str, Any]:
 
     def _safe_mean(xs: List[int]) -> float:
         return (sum(xs) / len(xs)) if xs else 0.0
+    by_ext: Dict[str, int] = {}
+    for c in chunks:
+        ext = Path(c.source).suffix.lower()
+        by_ext[ext] = by_ext.get(ext, 0) + 1
 
     return {
         "n_chunks": len(chunks),
         "by_doc_type": by_type,
+        "by_source_ext": by_ext,
         "length_chars": {
             "min": min(lengths) if lengths else 0,
             "mean": round(_safe_mean(lengths), 2),
