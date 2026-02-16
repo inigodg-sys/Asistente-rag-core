@@ -3,6 +3,8 @@ from __future__ import annotations
 import csv
 import json
 import re
+import html as html_lib
+from html.parser import HTMLParser
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Sequence, Tuple
@@ -36,7 +38,8 @@ def fix_spanish_ocr_noise(text: str) -> str:
 
 
 DocType = Literal["normativa", "tabla", "definicion", "tutorial", "formulario"]
-FmtType = Literal["md", "csv", "json"]
+FmtType = Literal["md", "csv", "json", "txt", "html"]
+
 
 
 # =========================
@@ -73,7 +76,7 @@ class IngestConfig:
     normative_max_chars: int = 900
     normative_overlap_chars: int = 120
 
-    include_exts: Tuple[str, ...] = (".md", ".csv", ".json")
+    include_exts: Tuple[str, ...] = (".md", ".csv", ".json", ".txt", ".html", ".htm")
     exclude_names_contains: Tuple[str, ...] = (".gitkeep",)
 
     tutorial_name_hints: Tuple[str, ...] = ("rag", "tutorial", "guia", "guide")
@@ -114,8 +117,14 @@ def discover_documents(cfg: IngestConfig) -> List[DocumentDescriptor]:
 
 
 def _ext_to_format(ext: str) -> Optional[FmtType]:
-    return {"md": "md", "csv": "csv", "json": "json"}.get(ext.lstrip("."))
-
+    return {
+        "md": "md",
+        "csv": "csv",
+        "json": "json",
+        "txt": "txt",
+        "html": "html",
+        "htm": "html",
+    }.get(ext.lstrip("."))
 
 def _infer_doc_type(path: Path, fmt: FmtType, cfg: IngestConfig) -> DocType:
     name = path.name.lower()
@@ -133,12 +142,63 @@ def _infer_doc_type(path: Path, fmt: FmtType, cfg: IngestConfig) -> DocType:
 # =========================
 # Read/parse
 # =========================
+class _HTMLTextExtractor(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self._parts: List[str] = []
+        self._skip_depth = 0
+
+    def handle_starttag(self, tag: str, attrs: List[Tuple[str, Optional[str]]]) -> None:
+        if tag.lower() in ("script", "style", "noscript"):
+            self._skip_depth += 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() in ("script", "style", "noscript") and self._skip_depth > 0:
+            self._skip_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self._skip_depth == 0 and data:
+            self._parts.append(data)
+
+    def get_text(self) -> str:
+        txt = "\n".join(x.strip() for x in self._parts if x.strip())
+        txt = re.sub(r"\n{3,}", "\n\n", txt)
+        return txt.strip()
+
+
+def _html_to_text(html: str) -> str:
+    html = html_lib.unescape(html)
+    p = _HTMLTextExtractor()
+    p.feed(html)
+    return p.get_text()
 
 def read_and_parse(desc: DocumentDescriptor) -> Any:
     if desc.format == "md":
        text = desc.path.read_text(encoding="utf-8", errors="replace")
        text = fix_spanish_ocr_noise(text)
        return text
+def read_and_parse(desc: DocumentDescriptor) -> Any:
+    if desc.format == "md":
+        text = desc.path.read_text(encoding="utf-8", errors="replace")
+        text = fix_spanish_ocr_noise(text)
+        return text
+
+    if desc.format == "txt":
+        text = desc.path.read_text(encoding="utf-8", errors="replace")
+        text = fix_spanish_ocr_noise(text)
+        return text
+
+    if desc.format == "html":
+        html = desc.path.read_text(encoding="utf-8", errors="replace")
+        text = _html_to_text(html)
+        text = fix_spanish_ocr_noise(text)
+        return text
+
+    if desc.format == "csv":
+        return _read_csv(desc.path)
+    if desc.format == "json":
+        return json.loads(desc.path.read_text(encoding="utf-8", errors="replace"))
+    raise ValueError(f"Formato no soportado: {desc.format}")
 
     if desc.format == "csv":
         return _read_csv(desc.path)
@@ -176,8 +236,9 @@ def ingest_corpus(cfg: IngestConfig) -> List[Chunk]:
     for desc in discover_documents(cfg):
         parsed = read_and_parse(desc)
 
-        if desc.format == "md":
-            chunks.extend(_ingest_md(desc, parsed, cfg))
+        if desc.format in ("md", "txt", "html"):
+           chunks.extend(_ingest_md(desc, parsed, cfg))
+
         elif desc.format == "csv":
             chunks.extend(_ingest_csv(desc, parsed))
         elif desc.format == "json":
