@@ -203,17 +203,16 @@ El “dolor real” del caso (PDF escaneado + OCR ruidoso) no se resuelve solo c
 
 ### 3.2 Diagrama end-to-end (pipeline RAG + evaluación)
 
-```mermaid
 flowchart LR
-  A[Fuentes documentales<br/>MD/CSV/JSON/TXT/HTML] --> B[CAPA A: Ingesta + Normalización<br/>doc_type + chunking]
-  B --> C[CAPA B: Embeddings + Indexado FAISS<br/>manifest + meta]
-  C --> D[(FAISS index<br/>data/index/faiss.index)]
-  Q[Pregunta usuario] --> E[CAPA C: Retriever<br/>top-k + min_score]
+  A["Fuentes documentales<br/>MD/CSV/JSON/TXT/HTML"] --> B["CAPA A: Ingesta + Normalización<br/>doc_type + chunking"]
+  B --> C["CAPA B: Embeddings + Indexado FAISS<br/>manifest + meta"]
+  C --> D["FAISS index<br/>data/index/faiss.index"]
+  Q["Pregunta usuario"] --> E["CAPA C: Retriever<br/>top-k + min_score"]
   D --> E
-  E --> F[CAPA C: Generator/LLM<br/>max_sources + higiene de citas]
-  F --> G[Respuesta + Citas (si hay evidencia)]
-  G --> H[CAPA D: Benchmarks<br/>CH04/CH06/CH07 + artefactos]
-```
+  E --> F["CAPA C: Generator/LLM<br/>max_sources + higiene de citas"]
+  F --> G["Respuesta + Citas<br/>si hay evidencia"]
+  G --> H["CAPA D: Benchmarks<br/>CH04/CH06/CH07 + artefactos"]
+
 
 ### 3.3 CAPA A — Ingesta multiformato (reproducible)
 
