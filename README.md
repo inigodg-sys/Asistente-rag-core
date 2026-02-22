@@ -544,8 +544,17 @@ Interpretación clave:
 
 Artefactos auditables sin ejecutar:
 
-- `eval_artifacts/ch07/eval_generative_v1.json`
-- `eval_artifacts/ch07/generative_raw_v1/gen_XXX.txt`
+- **CAPA A (ingesta 5 formatos)**
+  - [chunk_stats.json](eval_artifacts/capaA/ingest_smoke_5fmt/chunk_stats.json)
+  - [run_manifest.json](eval_artifacts/capaA/ingest_smoke_5fmt/run_manifest.json)
+
+- **CH07 (evaluación generativa)**
+  - [eval_generative_v1.json](eval_artifacts/ch07/eval_generative_v1.json)
+  - [generative_raw_v1/ (outputs)](eval_artifacts/ch07/generative_raw_v1/)
+    - ejemplo: [gen_001.txt](eval_artifacts/ch07/generative_raw_v1/gen_001.txt)
+    - ejemplo: [gen_010.txt](eval_artifacts/ch07/generative_raw_v1/gen_010.txt)
+
+
 
 ### 6.6 Evidencia de ingesta multiformato y visualización
 
