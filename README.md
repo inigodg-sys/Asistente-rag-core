@@ -50,16 +50,32 @@ La estrategia del repo es incremental y por capas: primero “plumbing” + repr
 - Python (según tu entorno del proyecto) + `git`.
 - Si vas a usar `--backend openai`, configura tu API key (por ejemplo `OPENAI_API_KEY`).
 
+Ejemplo (WSL/Linux):
+```bash
+export OPENAI_API_KEY="tu_api_key"
+```
+
 ### 1) Clonar repositorio
 ```bash
-git clone <URL_DEL_REPO>
+git clone https://github.com/inigodg-sys/Asistente-rag-core.git
 cd Asistente-rag-core
 ```
 
 ### 2) Activar entorno y preparar `PYTHONPATH`
 ```bash
-cd ~/repos/Asistente-rag-core
-source .venv_wsl/bin/activate 
+cd Asistente-rag-core
+
+# Si ya tienes un venv WSL existente:
+#   source .venv_wsl/bin/activate
+# Si NO lo tienes, crea uno rápido:
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Instala dependencias (elige una):
+#   pip install -r requirements.lock.txt
+#   pip install -r requirements.txt
+pip install -r requirements.txt
+
 export PYTHONPATH=$PWD/src
 ```
 
@@ -73,6 +89,17 @@ python3 cli/answer.py \
   --max_sources 10 \
   "¿Cuál es el plazo de evaluación técnica según el cronograma?"
 ```
+
+Si no tienes API key (o quieres una demo offline), puedes usar backends sin red:
+```bash
+python3 cli/answer.py \
+  --backend deterministic \
+  -k 20 \
+  --min_score 0.35 \
+  --max_sources 10 \
+  "¿Cuál es el plazo de evaluación técnica según el cronograma?"
+```
+
 
 ### 4) Reproducir benchmarks (CH04/CH06/CH07)
 Los comandos exactos están en:
@@ -178,16 +205,15 @@ El “dolor real” del caso (PDF escaneado + OCR ruidoso) no se resuelve solo c
 
 ```mermaid
 flowchart LR
-  A["Fuentes documentales<br/>MD/CSV/JSON/TXT/HTML"] --> B["CAPA A: Ingesta + Normalización<br/>doc_type + chunking"]
-  B --> C["CAPA B: Embeddings + Indexado FAISS<br/>manifest + meta"]
-  C --> D["FAISS index<br/>data/index/faiss.index"]
-  Q["Pregunta usuario"] --> E["CAPA C: Retriever<br/>top-k + min_score"]
+  A[Fuentes documentales<br/>MD/CSV/JSON/TXT/HTML] --> B[CAPA A: Ingesta + Normalización<br/>doc_type + chunking]
+  B --> C[CAPA B: Embeddings + Indexado FAISS<br/>manifest + meta]
+  C --> D[(FAISS index<br/>data/index/faiss.index)]
+  Q[Pregunta usuario] --> E[CAPA C: Retriever<br/>top-k + min_score]
   D --> E
-  E --> F["CAPA C: Generator/LLM<br/>max_sources + higiene de citas"]
-  F --> G["Respuesta + Citas<br/>(si hay evidencia)"]
-  G --> H["CAPA D: Benchmarks<br/>CH04/CH06/CH07 + artefactos"]
+  E --> F[CAPA C: Generator/LLM<br/>max_sources + higiene de citas]
+  F --> G[Respuesta + Citas (si hay evidencia)]
+  G --> H[CAPA D: Benchmarks<br/>CH04/CH06/CH07 + artefactos]
 ```
-
 
 ### 3.3 CAPA A — Ingesta multiformato (reproducible)
 
