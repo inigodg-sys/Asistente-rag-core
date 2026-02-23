@@ -1,9 +1,9 @@
 # Asistente-RAG-CORE — README (TFM)
 Este repositorio es la base del **Trabajo Fin de Máster (TFM)**: construcción de un **asistente RAG (Retrieval-Augmented Generation)** orientado a trabajar con documentación de licitaciones (principalmente en español).
 
-El caso de uso y la documentación de ejemplo provienen de una **licitación pública en Chile** (Ministerio de Transportes y Telecomunicaciones). En una primera aproximación utilicé la funcionalidad nativa de ChatGPT (Workspace y GPTs especializados) para analizar PDFs; aunque el resultado fue razonable, no alcanzó el nivel de **trazabilidad**, **control** y **reproducibilidad** necesario para un proceso defendible.
+El foco del proyecto es un sistema **defendible**: prioriza **trazabilidad de evidencia (citas)**, **control** y **reproducibilidad**, y lo demuestra con benchmarks y artefactos auditables. La motivación completa y el caso de estudio (licitación pública en Chile) se desarrollan en **1. Contexto y motivación**.
 
-La estrategia del repo es incremental y por capas: primero “plumbing” + reproducibilidad; después indexación real, retrieval real y evaluación.
+La implementación sigue una estrategia incremental **por capas (CAPA A–D)**: ingesta/normalización → embeddings+indexado → retrieval+generación con evidencia → evaluación. Para revisión sin ejecutar, los snapshots relevantes se versionan en **`eval_artifacts/`** (mientras que **`reports/`** se considera output local/efímero).
 
 ## Tabla de contenidos
 - [Executive Summary](#executive-summary)
@@ -131,7 +131,12 @@ Estructura lógica (carpetas relevantes para el tribunal):
 
 ### Mini caso, (Caso real Licitacion Chile Ministerio de Transporte y Telecomunicación)
 
-En un proceso real de preparación de respuesta a licitaciones, la documentación llega mayoritariamente como **PDF** (a menudo escaneado) y depende de **OCR** para extraer texto. En la práctica, el OCR introduce artefactos frecuentes: palabras “rotas” por saltos de línea, caracteres confundidos, y tablas que se convierten en texto desordenado. El resultado es que, incluso si “hay información” en el documento, la búsqueda por similitud puede recuperar fragmentos incompletos o irrelevantes, y la generación corre el riesgo de producir respuestas **sin evidencia sólida**.
+En mi trabajo participo de forma recurrente en procesos de licitación, donde el éxito depende de analizar rápidamente grandes volúmenes de documentación y responder con precisión. Este tipo de proyectos aporta un alto valor a las empresas porque impacta directamente en el **cost of sales**: reduce horas de preventa, disminuye retrabajo y acelera la preparación de ofertas.
+
+Este TFM nace de un caso real (licitación pública en Chile, sector transporte) donde la documentación llega principalmente en PDF, a menudo escaneado, y depende de OCR. En la práctica, el OCR introduce errores (palabras rotas, caracteres mal reconocidos, tablas degradadas), lo que dificulta recuperar evidencia fiable y aumenta el riesgo de respuestas no auditables si se usa un LLM sin control documental.
+
+El objetivo del proyecto es construir un pipeline RAG reutilizable, reproducible y trazable para licitaciones: respuestas con evidencia verificable y aplicables de forma consistente a nuevos procesos con un coste marginal bajo.
+
 
 ### Decisión técnica: separar conversión PDF→texto del pipeline RAG reproducible
 
