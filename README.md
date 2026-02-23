@@ -199,7 +199,7 @@ Esto permite mantener una semántica consistente y reproducible, y facilita audi
 
 ### 3.1 Narrativa de alto nivel (del problema a la solución)
 
-El “dolor real” del caso (PDF escaneado + OCR ruidoso) no se resuelve solo con un LLM: primero hay que construir una tubería que garantice texto estable, trazabilidad de evidencia y reproducibilidad. Por eso el sistema se organiza en capas (CAPA A–D): cada capa tiene una responsabilidad clara, produce artefactos verificables, y permite evaluar mejoras sin romper el resto.
+Un LLM, por sí solo, no puede dar soporte fiable al trabajo de preparar una licitación si no dispone de acceso controlado a la documentación y a la evidencia exacta detrás de cada afirmación. Para resolverlo, este proyecto implementa un enfoque RAG junto con una tubería previa que garantiza texto estable, trazabilidad de fuentes y reproducibilidad. Por ello el sistema se organiza en capas (CAPA A–D): cada capa tiene una responsabilidad acotada, genera artefactos verificables y permite introducir mejoras evaluables sin afectar al resto.
 
 ### 3.2 Diagrama end-to-end (pipeline RAG + evaluación)
 
@@ -440,7 +440,7 @@ La construcción del índice se realiza en src/rag_core/index_faiss.py mediante 
   - se escribe meta.jsonl con la metadata asociada
   - se escribe manifest.json con hashes y parámetros (reproducibilidad)
 
-Artefactos persistidos:
+Artefactos persistidos (Archivos/salidas que el pipeline genera y guarda en disco para reutilizarlos después, en vez de recalcularlos cada vez):
 
 - data/index/faiss.index → índice FAISS
 - data/index/meta.jsonl → metadata por vector/chunk
@@ -587,7 +587,7 @@ Baseline del sistema antes del cierre final:
 - Pipeline RAG operativo (ingesta → embeddings → FAISS → retrieval → generación).
 - Generación con un número limitado de fuentes en el generador determinista:
   - `max_sources = 3` por defecto en `GeneratorConfig` (cuántos chunks se usan para responder).
-- Ingesta multiformato en progreso (MVP inicial centrado en text-like).
+- Ingesta multiformato en progreso.
 - Evaluación aún no consolidada en un paquete reproducible completo.
 
 **Riesgo baseline**:
